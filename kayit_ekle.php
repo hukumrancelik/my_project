@@ -407,7 +407,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
 
 
 
-<label class="control-label col-md-4">Evin Durumu</label>
+<label class="control-label col-md-4"><b>Evin Durumu</b></label>
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio5" name="evin_durumu" class="custom-control-input" value="Kendi Evi (Brüt 70 m2 den fazla ise)">
   <label class="custom-control-label" for="customRadio5">Kendi Evi(Brüt 70 m2 den fazla ise) </label>
@@ -428,7 +428,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
   <label class="custom-control-label" for="customRadio8">Kirası karşılanıyor</label>
 </div><br>
 
-<label class="control-label col-md-4">Evin fiziki durumu</label>
+<label class="control-label col-md-4"><b>Evin fiziki durumu</b></label>
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio21" name="fiziki_durum" class="custom-control-input" value="Kötü">
   <label class="custom-control-label" for="customRadio21">Kötü</label>
@@ -445,7 +445,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
 
 
 
-<label class="control-label col-md-4">Evin Isınma Durumu</label>
+<label class="control-label col-md-4"><b>Evin Isınma Durumu</b></label>
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio9" name="isinma_durumu" class="custom-control-input" value="Soba">
   <label class="custom-control-label" for="customRadio9">Soba</label>
@@ -456,7 +456,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
 </div><br>
 
  <div class="form-group">
-    <label for="exampleFormControlSelect1">Aile birey sayısı</label>
+    <label for="exampleFormControlSelect1"><b>Aile birey sayısı</b></label>
     <select class="form-control" id="exampleFormControlSelect1" name="aile_birey">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -467,7 +467,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
   </div>
 
 <div class="form-group">
-    <label for="exampleFormControlSelect1">Aile okuyan sayısı(ilkokul,ortaokul,lise)</label>
+    <label for="exampleFormControlSelect1"><b>Aile okuyan sayısı(ilkokul,ortaokul,lise)</b></label>
     <select class="form-control" id="exampleFormControlSelect1" name="okuyan_sayi">
       <option value="0">0</option>
       <option value="1">1</option>
@@ -479,7 +479,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
   </div>
 
 <div class="form-group">
-    <label for="exampleFormControlSelect1">Aile üniversite okuyan sayısı</label>
+    <label for="exampleFormControlSelect1"><b>Aile üniversite okuyan sayısı</b></label>
     <select class="form-control" id="exampleFormControlSelect1" name="uni_sayisi">
        <option value="0">0</option>
       <option value="1">1</option>
@@ -489,7 +489,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
     </select>
   </div>
 
-<label class="control-label col-md-4">Ailede yaşlılık maaşı alan var mı?</label>
+<label class="control-label col-md-4"><b>Ailede yaşlılık maaşı alan var mı?</b></label>
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio11" name="y_maas" class="custom-control-input" value="Evet">
   <label class="custom-control-label" for="customRadio11">Evet</label>
@@ -499,7 +499,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
   <label class="custom-control-label" for="customRadio12">Hayır</label>
 </div><br>
 
-<label class="control-label col-md-4">Ailede özürlülük maaşı alan var mı?</label>
+<label class="control-label col-md-4"><b>Ailede özürlülük maaşı alan var mı?</b></label>
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio13" name="ozur_maas" class="custom-control-input" value="Evet">
   <label class="custom-control-label" for="customRadio13">Evet</label>
@@ -510,7 +510,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
 </div><br>
 
 
-<label class="control-label col-md-4">Yardım alınan bir kurum var mı?</label>
+<label class="control-label col-md-4"><b>Yardım alınan bir kurum var mı?</b></label>
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio15" name="kurum" class="custom-control-input" value="Hayır">
   <label class="custom-control-label" for="customRadio15">Hayır</label>
@@ -526,7 +526,7 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
 </div><br>
 
 
-<label class="control-label col-md-4">Ailede çalışabilir kişi sayısı</label>
+<label class="control-label col-md-4"><b>Ailede çalışabilir kişi sayısı</b></label>
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio18" name="calisan_kisi" class="custom-control-input" value="Çalışabilir kişi yok">
   <label class="custom-control-label" for="customRadio18">Çalışabilir kişi yok</label>
