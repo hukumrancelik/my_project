@@ -6,6 +6,7 @@ $db_ad='sosyal_yardim';
 $db_kullanici='root';
 $db_sifre='';
 $db = new PDO('mysql:host=localhost;charset=UTF8;dbname='.$db_ad, $db_kullanici, $db_sifre);
+
     
 } 
 catch (PDOException $e)
@@ -33,15 +34,20 @@ if(isset($_POST['kaydet']))
 
     $sorgu=$db->prepare("insert into users values(NULL,?,?,?,?,?)"); 
     $sorgu->execute($formliste);
+    $id= $db->lastInsertId();
+
     
 }
+
+
+
 
 #adres bilgileri
 
 if(isset($_POST['kaydet']))
 {
       $adres_gonder=[
-        
+        $_POST['kisi_id']= $id,
         $_POST['mahalle'],
         $_POST['sokak'],
         $_POST['apartman'],
@@ -52,7 +58,7 @@ if(isset($_POST['kaydet']))
     
     
 
-    $sorgu_adres=$db->prepare("insert into adres_bilgileri values(NULL,?,?,?,?,?)"); 
+    $sorgu_adres=$db->prepare("insert into adres_bilgileri values(NULL,?,?,?,?,?,?)"); 
     $sorgu_adres->execute($adres_gonder);
     
 }
@@ -84,15 +90,10 @@ if(isset($_POST['kaydet']))
     
 }
 
-
-
- 
-
-
-
-
 ?>
 
+
+   
 
 
 
@@ -244,6 +245,7 @@ if(isset($_POST['kaydet']))
       <div class="app-title">
         <div>
           <h1><i class="fa fa-edit"></i> Kayıt Ekle</h1>
+
           <p>Kayıtlar</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -260,7 +262,18 @@ if(isset($_POST['kaydet']))
               <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
                 <div class="form-group">
                   <label class="control-label"><b>Ad</b></label>
-                  <input class="form-control" type="text" placeholder="Ad" name="username"><br>
+
+                  <?php   
+
+
+
+                        
+                       
+                       echo $id;
+
+                   ?>
+                  
+                     <input class="form-control" type="text" placeholder="Ad" name="username"><br>
                   <label class="control-label"> <b>Soyad</b></label>
                   <input class="form-control" type="text" placeholder="Soyad" name="username_surname">
                 </div>

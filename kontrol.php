@@ -3,8 +3,8 @@
 	
 	if($_POST)
 	{
-		$name =$_POST["userName"];
-		$pass =$_POST["sifre"];
+		$name =trim($_POST["userName"]);
+		$pass =trim($_POST["sifre"]);
 		$query  = $db->query("SELECT * FROM admin WHERE userName='$name' && sifre='$pass'",PDO::FETCH_ASSOC);
 		if ( $say = $query -> rowCount() ){
 			if( $say > 0 ){
