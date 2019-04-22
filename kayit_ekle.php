@@ -68,7 +68,7 @@ if(isset($_POST['kaydet']))
 if(isset($_POST['kaydet']))
 {
       $sorular_gonder=[
-        
+        $_POST['kisi_ID']=$id,
         $_POST['gelir'],
         $_POST['evin_durumu'],
         $_POST['fiziki_durum'],
@@ -82,11 +82,9 @@ if(isset($_POST['kaydet']))
         $_POST["calisan_kisi"]
 
                 ];
-    
-    
-
-    $sorgu_sorular=$db->prepare("insert into sorular values(NULL,?,?,?,?,?,?,?,?,?,?,?)"); 
+    $sorgu_sorular=$db->prepare("insert into sorular values(NULL,?,?,?,?,?,?,?,?,?,?,?,?)"); 
     $sorgu_sorular->execute($sorular_gonder);
+
     
 }
 
@@ -262,17 +260,6 @@ if(isset($_POST['kaydet']))
               <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
                 <div class="form-group">
                   <label class="control-label"><b>Ad</b></label>
-
-                  <?php   
-
-
-
-                        
-                       
-                       echo $id;
-
-                   ?>
-                  
                      <input class="form-control" type="text" placeholder="Ad" name="username"><br>
                   <label class="control-label"> <b>Soyad</b></label>
                   <input class="form-control" type="text" placeholder="Soyad" name="username_surname">
