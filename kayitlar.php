@@ -154,18 +154,25 @@ include("dataBase.php")
 <?php 
 
               
- $query = $db->query("SELECT * FROM users", PDO::FETCH_ASSOC);
+ $query = $db->query("SELECT users.username,users.username_surname,users.tc_kimlik,users.yas,users.user_tel,adres_bilgileri.mahalle,sorular.evin_durumu
+FROM users,adres_bilgileri,sorular
+WHERE 
+users.id=adres_bilgileri.kisi_id
+AND
+users.id=sorular.kisi_ID", PDO::FETCH_ASSOC);
 if ( $query->rowCount() )
 
   echo "<table class='table table-striped'>";
   echo " <thead class='thead-dark'>";
   echo "<tr>";
-  echo "<th scope='col'>ID</th>";
+ 
   echo "<th scope='col'>AD</th>";
   echo "<th scope='col'>SOYAD</th>";
   echo "<th scope='col'>TC KİMLİK</th>";
+  echo "<th scope='col'>YAŞ</th>";
   echo "<th scope='col'>TELEFON</th>";
-  echo "<th scope='col'>ÖZET FORM</th>";
+  echo "<th scope='col'>MAHALLE</th>";
+  echo "<th scope='col'>EV DURUMU</th>";
   echo "<th scope='col'>İHTİYAÇ ORANI</th>";
   echo "</tr>";
   echo "</thead>";
@@ -178,12 +185,15 @@ if ( $query->rowCount() )
            
   
     echo "<tr>";
-    echo "<td>",$row['id'],"</td>";
+   
     echo "<td>",$row['username'],"</td>";
     echo "<td>",$row['username_surname'],"</td>";
     echo "<td>",$row['tc_kimlik'],"</td>";
+    echo "<td>",$row['yas'],"</td>";
     echo "<td>",$row['user_tel'],"</td>";
-    echo "<td>","<button type='submit' class='btn btn-success'>Özet</button>","</td>";
+    echo "<td>",$row['mahalle'],"</td>";
+     echo "<td>",$row['evin_durumu'],"</td>";
+    
 
     echo "</tr>";
  

@@ -26,19 +26,18 @@ if(isset($_POST['kaydet']))
         $_POST['username_surname'],
         $_POST['user_tel'],
         $_POST['tc_kimlik'],
-        $_POST["cinsiyet"]
+        $_POST["cinsiyet"],
+        $_POST["dg"],
+        $_POST["yas"]=0
+
 
                 ];
-    
-    
-
-    $sorgu=$db->prepare("insert into users values(NULL,?,?,?,?,?)"); 
+    $sorgu=$db->prepare("insert into users values(NULL,?,?,?,?,?,?,?)"); 
     $sorgu->execute($formliste);
     $id= $db->lastInsertId();
 
     
 }
-
 
 
 
@@ -87,6 +86,19 @@ if(isset($_POST['kaydet']))
 
     
 }
+
+#yas_guncelleme
+if(isset($_POST['kaydet']))
+{
+   
+    $yas_guncel=$db->prepare("UPDATE users SET yas = EXTRACT(year FROM CURRENT_TIMESTAMP) - EXTRACT(year FROM dg)"); 
+    $yas_guncel->execute();
+    
+
+    
+}
+
+
 
 ?>
 
@@ -274,6 +286,7 @@ if(isset($_POST['kaydet']))
                     <label class="form-check-label">
                       <input class="form-check-input" type="radio" name="cinsiyet" value="Erkek">Erkek
                     </label>
+                    
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
@@ -281,6 +294,11 @@ if(isset($_POST['kaydet']))
                     </label>
                   </div> <br>
                    
+                     <div class="form-group">
+                  <label class="control-label">Doğum Tarihi</label>
+                  <input class="form-control" type="text" placeholder="YYYY/AA/GG" name="dg">
+                </div><br>
+
                    <label class="control-label">Telefon</label>
                     <input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-ddddb" name="user_tel" placeholder="+90">
                 
@@ -388,13 +406,13 @@ if(isset($_POST['kaydet']))
     
      <div class="custom-control custom-radio">
   <input type="radio" id="customRadio1" name="gelir" class="custom-control-input" value="Net asgari ücretin %50’sine kadar geliri olanlar"></input>
-  <label class="custom-control-label" for="customRadio1">Net asgari ücretin %50’sine kadar </label>
+  <label class="custom-control-label" for="customRadio1">Net asgari ücretin %50’sine kadar olanlar</label>
 </div>  
 </div>
 
 <div class="custom-control custom-radio">
   <input type="radio" id="customRadio2" name="gelir" class="custom-control-input" value="Net asgari ücretin %50’sinden fazla olup,%100’üne kadar geliri olanlar"></input>
-  <label class="custom-control-label" for="customRadio2">Net asgari ücretin %50’sinden fazla olup,%100’üne kadar </label>
+  <label class="custom-control-label" for="customRadio2">Net asgari ücretin %50’sinden fazla olup,%100’üne kadar olanlar </label>
 </div>
 
 
