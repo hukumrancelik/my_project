@@ -3,7 +3,7 @@
 include("dataBase.php");
 
 
-#kadin
+#kadin_yas
 $query= $db->query("SELECT AVG(users.yas) as ort_kadin
 FROM users
 WHERE users.cinsiyet='Kadın' ", PDO::FETCH_ASSOC);
@@ -23,7 +23,7 @@ if ( $query->rowCount() )
 
 }
 
-#erkek_sayisi
+#erkek_yas
 $query_erkek = $db->query("SELECT AVG(users.yas) as ort_erkek
 FROM users
 WHERE users.cinsiyet='Erkek' ", PDO::FETCH_ASSOC);
@@ -42,8 +42,6 @@ if ( $query_erkek->rowCount() )
 
 
 }
-
-
 
 
 
