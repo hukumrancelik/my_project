@@ -1,65 +1,7 @@
-
 <?php 
-include("dataBase.php");
-
-#kadin_sayisi
-$query= $db->query("SELECT COUNT(users.id)as 'kadin_sayisi'
-FROM users WHERE users.cinsiyet='Kadın' ", PDO::FETCH_ASSOC);
-if ( $query->rowCount() )
-{
-     
-
-     foreach( $query as $row ){
-          
-           
-  
-    
-    $kadin=$row['kadin_sayisi'];
-        
-}
-
-
-}
-
-#erkek_sayisi
-$query_erkek = $db->query("SELECT COUNT(users.id)as 'erkek_sayisi'
-FROM users WHERE users.cinsiyet='Erkek' ", PDO::FETCH_ASSOC);
-if ( $query_erkek->rowCount() )
-{
-     
-
-     foreach( $query_erkek as $row_erkek ){
-          
-           
-  
-    
-    $erkek=$row_erkek['erkek_sayisi'];
-        
-}
-
-
-}
-
-
-
-
-$dataPoints = array(
-  array("label"=> "Erkek", "y"=> $erkek),
-  array("label"=> "Kadın", "y"=> $kadin),
- 
-                    );
-
- ?>
-
-
- <?php 
-
-
-
-
-
-
-  ?>
+include("dataBase.php")
+                 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,7 +17,7 @@ $dataPoints = array(
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Grafikler</title>
+    <title>Kayıtlar</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,12 +25,10 @@ $dataPoints = array(
     <link rel="stylesheet" type="text/css" href="main_3.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
-     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.php">Buca Belediyesi</a>
+    <header class="app-header"><a class="app-header__logo" href="index.html">Buca Belediyesi</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -140,9 +80,9 @@ $dataPoints = array(
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Ayarlar</a></li>
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profil</a></li>
-            <li><a class="dropdown-item" href="giris.php"><i class="fa fa-sign-out fa-lg"></i> Çıkış</a></li>
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -158,18 +98,22 @@ $dataPoints = array(
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item" href="index.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Anasayfa</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıt İşlemler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview is-expanded"><a class="app-menu__item" href="kayitlar.php" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıtlar</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i>Kayıt Ekle</a></li>
-            <li><a class="treeview-item" href="kayitlar.php"  rel="noopener"><i class="icon fa fa-circle-o"></i> Kayıtlar</a></li>
-           
+            <li><a class="treeview-item" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i> Kayıt ekle</a></li>
+            
+              <li><a class="treeview-item active" href="kayitlar.php"><i class="icon fa fa-circle-o"></i>Kayıtlar</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
+            
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
+            
           </ul>
         </li>
-        <li><a class="app-menu__item active" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
+        <li><a class="app-menu__item" href="charts.php"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i>Mahalle Analizler</a></li>
-            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
+            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Mahalle Analizleri</a></li>
+            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
             <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
             <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
           </ul>
@@ -195,72 +139,71 @@ $dataPoints = array(
       </ul>
     </aside>
     <main class="app-content">
-      <div class="app-title">
-        <div>
-          <h1><i class="fa fa-pie-chart"></i> Grafikler</h1>
-          
+      
+         <div class="tile mb-4">
+        <div class="page-header">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2 class="mb-3 line-head" id="buttons">Kayıtlar</h2>
+            </div>
+          </div>
         </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">charts</a></li>
-        </ul>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-          <div class="tile">
+        <div class="row">
+          <div class="col-lg-7">
             
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Bar Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="barChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Radar Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="radarChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Polar Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="polarChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-        
+<?php 
 
-<div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Line Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+              
+ $query = $db->query("SELECT adres_bilgileri.mahalle, COUNT(adres_bilgileri.adres_id) as basvuruSayisi
+FROM adres_bilgileri
+GROUP BY adres_bilgileri.mahalle
+ORDER BY basvuruSayisi DESC", PDO::FETCH_ASSOC);
+if ( $query->rowCount() )
+
+  echo "<table class='table table-striped'>";
+  echo " <thead class='thead-dark'>";
+  echo "<tr>";
+ 
+  echo "<th scope='col'>MAHALLE</th>";
+  echo "<th scope='col'>BAŞVURU SAYISI</th>";
+ 
+  echo "</tr>";
+  echo "</thead>";
+
+{
+     
+
+     foreach( $query as $row ){
+          
+           
+  
+    echo "<tr>";
+   
+    echo "<td>",$row['mahalle'],"</td>";
+    echo "<td>",$row['basvuruSayisi'],"</td>";
+    
+
+    echo "</tr>";
+ 
+     
+}
+
+
+}
+
+
+
+
+
+
+
+ ?>
+
+              
+
             </div>
-          </div>
 
-
-
-
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Doughnut Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="doughnutChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <!-- Essential javascripts for application to work-->
+<!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -268,117 +211,42 @@ $dataPoints = array(
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.vmap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.vmap.world.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.vmap.sampledata.js"></script>
     <script type="text/javascript">
-
-
-
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-
-
-
-
-
-      var pdata = [
-      	{
-      		value: 50,
-      		color:"Pink",
-      		highlight: "#FF5A5E",
-      		label: "Kadın"
-      	},
-      	
-       
-        {
-      		value: 50,
-      		color: "Blue",
-      		highlight: "#FFC870",
-      		label: "Erkek"
-      	}
-      ]
+      $(document).ready(function(){
       
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxb = $("#barChartDemo").get(0).getContext("2d");
-      var barChart = new Chart(ctxb).Bar(data);
-      
-      var ctxr = $("#radarChartDemo").get(0).getContext("2d");
-      var radarChart = new Chart(ctxr).Radar(data);
-      
-      var ctxpo = $("#polarChartDemo").get(0).getContext("2d");
-      var polarChart = new Chart(ctxpo).PolarArea(pdata);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
-      
-      var ctxd = $("#doughnutChartDemo").get(0).getContext("2d");
-      var doughnutChart = new Chart(ctxd).Doughnut(pdata);
+        var map = $('#demo-map');
+        map.vectorMap({
+          map: 'world_en',
+          backgroundColor: '#fff',
+          color: '#333',
+          hoverOpacity: 0.7,
+          selectedColor: '#666666',
+          enableZoom: true,
+          showTooltip: true,
+          scaleColors: ['#C8EEFF', '#006491'],
+          values: sample_data,
+          normalizeFunction: 'polynomial'
+        });
+      });
     </script>
     <!-- Google analytics script-->
     <script type="text/javascript">
       if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-72504830-1', 'auto');
+        ga('send', 'pageview');
       }
     </script>
 
-<script>
-window.onload = function () {
- 
-var chart = new CanvasJS.Chart("chartContainer", {
-  animationEnabled: true,
-  exportEnabled: true,
-  title:{
-    text: "Cinsiyet Dağılımına Göre Başvuru Sayıları"
-  },
-  subtitles: [{
-    text: "Başvuru Sayısı"
-  }],
-  data: [{
-    type: "pie",
-    showInLegend: "true",
-    legendText: "{label}",
-    indexLabelFontSize: 16,
-    indexLabel: "{label} - #percent%",
-    yValueFormatString: "฿#,##0",
-    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-  }]
-});
-chart.render();
- 
-}
-</script>
 
-
-
-
+             
+    
   </body>
+
 </html>

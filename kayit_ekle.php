@@ -209,23 +209,19 @@ if(isset($_POST['kaydet']))
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item" href="index.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Anasayfa</span></a></li>
-        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıt İşkemleri</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıt İşlemleri</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-             <li><a class="treeview-item active" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i> Kayit Ekle</a></li>
+             <li><a class="treeview-item active" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i> Kayıt Ekle</a></li>
 
 
             <li><a class="treeview-item" href="kayitlar.php"><i class="icon fa fa-circle-o"></i> Kayıtlar </a></li>
-            <li><a class="treeview-item" href="kayitlar.php" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Kayıtlar</a></li>
             
-           
-
-            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
           </ul>
         </li>
         <li><a class="app-menu__item" href="charts.php"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form Components</a></li>
+            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Mahalle Analizleri</a></li>
             <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
             <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Kayıt Ekle</a></li>
             <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
@@ -468,9 +464,15 @@ Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar</labe
   <input type="radio" id="customRadio9" name="isinma_durumu" class="custom-control-input" value="Soba">
   <label class="custom-control-label" for="customRadio9">Soba</label>
 </div>
+
 <div class="custom-control custom-radio">
   <input type="radio" id="customRadio10" name="isinma_durumu" class="custom-control-input" value="Kalorifer">
   <label class="custom-control-label" for="customRadio10">Kalorifer</label>
+</div>
+
+<div class="custom-control custom-radio">
+  <input type="radio" id="customRadio10_1" name="isinma_durumu" class="custom-control-input" value="Diğer">
+  <label class="custom-control-label" for="customRadio10_1">Diğer</label>
 </div><br>
 
  <div class="form-group">

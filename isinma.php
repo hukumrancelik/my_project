@@ -1,85 +1,126 @@
-<!DOCTYPE html>
+<?php
+ 
+ include("dataBase.php");
+
+#toplam
+$toplamSayi= $db->query("SELECT COUNT(sorular.yardim_id) as toplam
+FROM sorular", PDO::FETCH_ASSOC);
+if ( $toplamSayi->rowCount() )
+{
+     
+
+     foreach( $toplamSayi as $tp ){
+          
+           
+  
+    
+    $tplm=$tp['toplam'];
+
+ 
+        
+}
+}
+
+
+
+
+#Soba
+$durumSoba= $db->query("SELECT COUNT(sorular.yardim_id) as SobaSayisi
+FROM sorular
+WHERE sorular.isinma_durumu='Soba' ", PDO::FETCH_ASSOC);
+if ( $durumSoba->rowCount() )
+{
+     
+
+     foreach( $durumSoba as $dSoba )   {
+          
+           
+  
+    
+    $e1=$dSoba['SobaSayisi'];
+     $e1=$e1/$tplm*(100);
+        
+}
+
+
+}
+
+
+#Kolarifer
+$durumKalo= $db->query("SELECT COUNT(sorular.yardim_id) as KaloSayisi
+FROM sorular
+WHERE sorular.isinma_durumu='Kalorifer' ", PDO::FETCH_ASSOC);
+if ( $durumKalo->rowCount() )
+{
+     
+
+     foreach( $durumKalo as $dKalo ){
+          
+           
+  
+	$e2=$dKalo['KaloSayisi'];
+     $e2=$e2/$tplm*(100);
+}
+}
+
+
+
+
+
+#Diğer
+$durumDiger= $db->query("SELECT COUNT(sorular.yardim_id) as DigerSayisi
+FROM sorular
+WHERE sorular.isinma_durumu='Diğer' ", PDO::FETCH_ASSOC);
+if ( $durumDiger->rowCount() )
+{
+     
+
+     foreach( $durumDiger as $dDiger ){
+          
+           
+  
+	$e3=$dDiger['DigerSayisi'];
+     $e3=$e3/$tplm*(100);
+}
+
+
+}
+
+
+
+$dataPoints = array( 
+	array("label"=>"Soba", "y"=>$e1),
+	array("label"=>"Kalorifer", "y"=>$e2),
+	array("label"=>"Diger", "y"=>$e3)
+	
+)
+ 
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script type="text/javascript">
-	
-$(function () {
-   var bindDatePicker = function() {
-		$(".date").datetimepicker({
-        format:'YYYY-MM-DD',
-			icons: {
-				time: "fa fa-clock-o",
-				date: "fa fa-calendar",
-				up: "fa fa-arrow-up",
-				down: "fa fa-arrow-down"
-			}
-		}).find('input:first').on("blur",function () {
-			// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
-			// update the format if it's yyyy-mm-dd
-			var date = parseDate($(this).val());
-
-			if (! isValidDate(date)) {
-				//create date based on momentjs (we have that)
-				date = moment().format('DD-MM-YYYY');
-			}
-
-			$(this).val(date);
-		});
-	}
-   
-   var isValidDate = function(value, format) {
-		format = format || false;
-		// lets parse the date to the best of our knowledge
-		if (format) {
-			value = parseDate(value);
-		}
-
-		var timestamp = Date.parse(value);
-
-		return isNaN(timestamp) == false;
-   }
-   
-   var parseDate = function(value) {
-		var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-		if (m)
-			value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
-
-		return value;
-   }
-   
-   bindDatePicker();
- });
-
-
-
-	
+<script>
+window.onload = function() {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Başvuru Yapan Evlerin Isınma Durumu"
+	},
+	data: [{
+		type: "pyramid",
+		indexLabel: "{label} -% {y}",
+		yValueFormatString: "#,##0.00",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+chart.render();
+ 
+}
 </script>
-
-
-
-	<title></title>
 </head>
 <body>
-<div class="container">
-  <div class="row">
-    Date formats: yyyy-mm-dd, yyyymmdd, dd-mm-yyyy, dd/mm/yyyy, ddmmyyyyy
-  </div>
-  <br />
-    <div class="row">
-        <div class='col-sm-3'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
-
-
-
-</html>
+</html>                              
