@@ -770,7 +770,7 @@ chart_2.render();
 var chart_3 = new CanvasJS.Chart("chartContainer_3", {
   animationEnabled: true,
   title:{
-    text: "GELİR DURUMUNA GÖRE KİŞİ DAĞILIMI"
+    text: "Gelir Durumuna Göre Kişi Dağılımı"
   },
   axisY: {
     title: "Kişi Sayısı ",
@@ -825,7 +825,7 @@ var chart_6= new CanvasJS.Chart("chartContainer_6", {
   animationEnabled: true,
   theme: "light3",
   title:{
-    text: "YAŞ ARALIĞINA GÖRE BAŞVURU SAYILARI"
+    text: "Başvuru Yapan Kişilerin Ortalama Yaşına Göre "
   },
   axisY: {
     title: "Yaş"
