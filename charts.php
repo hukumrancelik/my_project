@@ -608,7 +608,7 @@ $dataPoints_6 = array(
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i>Mahalle Analizler</a></li>
-            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
+            <li><a class="treeview-item" href="birey.php"><i class="icon fa fa-circle-o"></i> Birey Analizleri</a></li>
             <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
             <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
           </ul>
@@ -695,6 +695,9 @@ $dataPoints_6 = array(
             </div>
           </div>
         </div>
+
+
+
       </div>
     </main>
     <!-- Essential javascripts for application to work-->

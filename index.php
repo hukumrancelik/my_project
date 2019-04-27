@@ -60,6 +60,27 @@ if ( $toplamSayi->rowCount() )
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
+
+    <!--Galeri-->
+    <meta name="title" content="jQuery Immersive Slider by Pete R. | The Pete Design" />
+  <meta name="description" content="Create an immersive slider experience with jQuery Immersive Slider" />
+  <link rel="image_src" href="/images/immersive_slider_image.png" />
+
+  <meta content="http://www.thepetedesign.com/demos/immersive_slider_demo.html" property="og:url" />
+  <meta content="http://www.thepetedesign.com/images/immersive_slider_image.png" property="og:image" />
+  <link rel="shortcut icon" id="favicon" href="favicon.png"> 
+  <meta name="author" content="Pete R.">
+  <link rel="canonical" href="http://www.thepetedesign.com/demos/immersive_slider_demo.html" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="galeri_css_js/jquery.immersive-slider.js"></script>
+  <link href='galeri_css_js/immersive-slider.css' rel='stylesheet' type='text/css'>
+  <link href='galeri_css_js/galleri_css.css' rel='stylesheet' type='text/css'>
+
+
+
+
+
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
@@ -213,120 +234,94 @@ if ( $toplamSayi->rowCount() )
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Monthly Sales</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+        <center><div class="col-md-6"></center>
+          <div class="main">
+      <div class="page_container">
+        <div id="immersive_slider">
+          <div class="slide" data-blurred="img/slide1_blurred.jpg">
+            <div class="content">
+              <h2><a href="http://www.bucketlistly.com" target="_blank">MECLİS TOPLANTI İLANI</a></h2>
+              <p>
+Buca Belediye Meclis Toplantısı, 02.05.2019 Perşembe günü, Buca Belediye Sarayı Meclis Toplantı Salonunda saat 17.30’da yapılacaktır.</p>
+            </div>
+            <div class="image">
+              <a href="http://www.bucketlistly.com" target="_blank">
+                <img src="img/a1.jpg" alt="Slider 1">
+              </a>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Support Requests</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
+          <div class="slide" data-blurred="img/slide2_blurred.jpg">
+            <div class="content">
+              <h2><a href="http://www.bucketlistly.com/apps" target="_blank">Taşınmazların 3 yıl süre ile kiraya verilmesi hk.</a></h2>
+              <p>İhale ile alakalı Şartname ve ekleri her gün mesai saatleri içerisinde Buca Belediyesi Emlak ve İstimlak Müdürlüğünde incelenebilir.</p>
+            </div>
+            <div class="image">
+             <a href="http://www.bucketlistly.com/apps" target="_blank"> <img src="img/a2.jpg" alt="Slider 1"></a>
             </div>
           </div>
+          <div class="slide" data-blurred="img/slide3_blurred.jpg">
+            <div class="content">
+              <h2><a href="http://www.thepetedesign.com" target="_blank">Çağrı Merkezi hk.</a></h2>
+              <p>Değerli personellerimiz; teknik sorunlardan dolayı kısa bir süre çağrı Merkezi sistemimizde teknik bakım çalışması yapılmaktadır.</p>
+            </div>
+            <div class="image">
+              <a href="http://www.thepetedesign.com" target="_blank"><img src="img/a3.jpg" alt="Slider 1"></a>
+            </div>
+          </div>
+          
+          <a href="#" class="is-prev">&laquo;</a>
+          <a href="#" class="is-next">&raquo;</a>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Features</h3>
-            <ul>
-              <li>Built with Bootstrap 4, SASS and PUG.js</li>
-              <li>Fully responsive and modular code</li>
-              <li>Seven pages including login, user profile and print friendly invoice page</li>
-              <li>Smart integration of forgot password on login page</li>
-              <li>Chart.js integration to display responsive charts</li>
-              <li>Widgets to effectively display statistics</li>
-              <li>Data tables with sort, search and paginate functionality</li>
-              <li>Custom form elements like toggle buttons, auto-complete, tags and date-picker</li>
-              <li>A inbuilt toast library for providing meaningful response messages to user's actions</li>
-            </ul>
-            <p>Vali is a free and responsive admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.</p>
-            <p>Vali is is light-weight, expendable and good looking theme. The theme has all the features required in a dashboard theme but this features are built like plug and play module. Take a look at the <a href="http://pratikborsadiya.in/blog/vali-admin" target="_blank">documentation</a> about customizing the theme colors and functionality.</p>
-            <p class="mt-4 mb-4"><a class="btn btn-primary mr-2 mb-2" href="http://pratikborsadiya.in/blog/vali-admin" target="_blank"><i class="fa fa-file"></i>Docs</a><a class="btn btn-info mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin" target="_blank"><i class="fa fa-github"></i>GitHub</a><a class="btn btn-success mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin/archive/master.zip" target="_blank"><i class="fa fa-download"></i>Download</a></p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Compatibility with frameworks</h3>
-            <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
-            <p>Go to <a href="http://pratikborsadiya.in/blog/vali-admin" target="_blank">documentation</a> for more details about integrating this theme with various frameworks.</p>
-            <p>The source code is available on GitHub. If anything is missing or weird please report it as an issue on <a href="https://github.com/pratikborsadiya/vali-admin" target="_blank">GitHub</a>. If you want to contribute to this theme pull requests are always welcome.</p>
-          </div>
-        </div>
+    </div>
+    <div class="benefits">
+      <div class="page_container">
+
       </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready( function() {
+        $("#immersive_slider").immersive_slider({
+          container: ".main"
+        });
+      });
+
+    </script>
+  </div>
+  <script>
+
+    var _gaq=[['_setAccount','UA-11278966-1'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+        </div>
+
+              </div>
+
+
     </main>
-    <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
+    
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-      var pdata = [
-      	{
-      		value: 300,
-      		color: "#46BFBD",
-      		highlight: "#5AD3D1",
-      		label: "Complete"
-      	},
-      	{
-      		value: 50,
-      		color:"#F7464A",
-      		highlight: "#FF5A5E",
-      		label: "In-Progress"
-      	}
-      ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
-    </script>
     <!-- Google analytics script-->
     <script type="text/javascript">
       if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-72504830-1', 'auto');
+        ga('send', 'pageview');
       }
     </script>
+  
+    
+    
   </form>
   </body>
 </html>

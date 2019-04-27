@@ -59,7 +59,7 @@ $dataPoints_6 = array(
 <script>
 window.onload = function() {
  
-var chart = new CanvasJS.Chart("chartContainer_2", {
+var chart_6= new CanvasJS.Chart("chartContainer_6", {
 	animationEnabled: true,
 	theme: "light3",
 	title:{
@@ -71,10 +71,10 @@ var chart = new CanvasJS.Chart("chartContainer_2", {
 	data: [{
 		type: "column",
 		yValueFormatString: "#,##0.## tonnes",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+		dataPoints: <?php echo json_encode($dataPoints_6, JSON_NUMERIC_CHECK); ?>
 	}]
 });
-chart.render();
+chart_6.render();
  
 }
 </script>
