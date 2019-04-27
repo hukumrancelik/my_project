@@ -28,11 +28,12 @@ if(isset($_POST['kaydet']))
         $_POST['tc_kimlik'],
         $_POST["cinsiyet"],
         $_POST["dg"],
-        $_POST["yas"]=0
+        $_POST["yas"]=0,
+        $_POST["ona_ydurumu"]
 
 
                 ];
-    $sorgu=$db->prepare("insert into users values(NULL,?,?,?,?,?,?,?)"); 
+    $sorgu=$db->prepare("insert into users values(NULL,?,?,?,?,?,?,?,?)"); 
     $sorgu->execute($formliste);
     $id= $db->lastInsertId();
 

@@ -4,19 +4,19 @@ include("dataBase.php");
 
 
 #kadin_yas
-$query= $db->query("SELECT AVG(users.yas) as ort_kadin
+$query_kadin_ort= $db->query("SELECT AVG(users.yas) as ort_kadin
 FROM users
 WHERE users.cinsiyet='Kadın' ", PDO::FETCH_ASSOC);
-if ( $query->rowCount() )
+if ( $query_kadin_ort->rowCount() )
 {
      
 
-     foreach( $query as $row ){
+     foreach( $query_kadin_ort as $row_kadin_ort ){
           
            
   
     
-    $kadin=$row['ort_kadin'];
+    $kadin_kadin_ort=$row_kadin_ort['ort_kadin'];
         
 }
 
@@ -24,19 +24,19 @@ if ( $query->rowCount() )
 }
 
 #erkek_yas
-$query_erkek = $db->query("SELECT AVG(users.yas) as ort_erkek
+$query_erkek_ort = $db->query("SELECT AVG(users.yas) as ort_erkek
 FROM users
 WHERE users.cinsiyet='Erkek' ", PDO::FETCH_ASSOC);
-if ( $query_erkek->rowCount() )
+if ( $query_erkek_ort->rowCount() )
 {
      
 
-     foreach( $query_erkek as $row_erkek ){
+     foreach( $query_erkek_ort as $row_erkek_ort ){
           
            
   
     
-    $erkek=$row_erkek['ort_erkek'];
+    $erkek_ort=$row_erkek_ort['ort_erkek'];
         
 }
 
@@ -47,9 +47,9 @@ if ( $query_erkek->rowCount() )
 
 
 
-$dataPoints = array( 
-	array("y" => $erkek, "label" => "ERKEK" ),
-	array("y" => $kadin, "label" => "KADIN" )
+$dataPoints_6 = array( 
+	array("y" => $erkek_ort, "label" => "ERKEK" ),
+	array("y" => $kadin_ort, "label" => "KADIN" )
 );
  
 ?>

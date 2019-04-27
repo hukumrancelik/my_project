@@ -101,7 +101,7 @@ include("dataBase.php")
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıt İşlemleri</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i> Kayıt Ekle</a></li>
-            <li><a class="treeview-item" href="kayitlar.php"  rel="noopener"><i class="icon fa fa-circle-o"></i> Kayıtlar</a></li>
+            <li><a class="treeview-item" href="kayitlar.php"  rel="noopener"><i class="icon fa fa-circle-o"></i>Kayıtlar </a></li>
             
           </ul>
         </li>
@@ -110,8 +110,8 @@ include("dataBase.php")
         <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Mahalle Analizleri</a></li>
-            <li><a class="treeview-item" href="birey.php"><i class="icon fa fa-circle-o"></i> Birey Analizleri</a></li>
+            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Mahalle Analizleri</a></li>
+            <li><a class="treeview-item active" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Birey Analizleri </a></li>
             <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
             <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
           </ul>
@@ -143,7 +143,7 @@ include("dataBase.php")
         <div class="page-header">
           <div class="row">
             <div class="col-lg-12">
-              <h2 class="mb-3 line-head" id="buttons">Mahalle Bazlı Başvuru Sayıları</h2>
+              <h2 class="mb-3 line-head" id="buttons">Birey Sayısına Göre Analizler</h2>
             </div>
           </div>
         </div>
@@ -153,18 +153,18 @@ include("dataBase.php")
 <?php 
 
               
- $query = $db->query("SELECT adres_bilgileri.mahalle, COUNT(adres_bilgileri.adres_id) as basvuruSayisi
-FROM adres_bilgileri
-GROUP BY adres_bilgileri.mahalle
-ORDER BY basvuruSayisi DESC", PDO::FETCH_ASSOC);
+ $query = $db->query("SELECT concat (users.username,' ',users.username_surname) as AdSoyad, sorular.aile_birey as bireySayisi,sorular.okuyan_sayi as okuyanSayi,sorular.uni_sayisi as uniSayi,sorular.calisan_kisi FROM users,sorular WHERE users.id=sorular.kisi_ID GROUP BY AdSoyad ORDER BY bireySayisi desc", PDO::FETCH_ASSOC);
 if ( $query->rowCount() )
 
   echo "<table class='table table-striped'>";
   echo " <thead class='thead-dark'>";
   echo "<tr>";
  
-  echo "<th scope='col'>MAHALLE</th>";
-  echo "<th scope='col'>BAŞVURU SAYISI</th>";
+  echo "<th scope='col'>KİŞİLER</th>";
+  echo "<th scope='col'>TOPLAM BİREY SAYISI</th>";
+  echo "<th scope='col'>OKUYAN(İlkokul-Ortaokul-Lise) BİREY SAYISI</th>";
+   echo "<th scope='col'>ÜNİVERSİTE OKUYAN BİREY SAYISI</th>";
+   echo "<th scope='col'>ÇALIŞMAYA ELVERİŞLİ BİREY SAYISI</th>";
  
   echo "</tr>";
   echo "</thead>";
@@ -178,8 +178,12 @@ if ( $query->rowCount() )
   
     echo "<tr>";
    
-    echo "<td>",$row['mahalle'],"</td>";
-    echo "<td>",$row['basvuruSayisi'],"</td>";
+    echo "<td>",$row['AdSoyad'],"</td>";
+    echo "<td>",$row['bireySayisi'],"</td>";
+    echo "<td>",$row['okuyanSayi'],"</td>";
+    echo "<td>",$row['uniSayi'],"</td>";
+    echo "<td>",$row['calisan_kisi'],"</td>";
+
     
 
     echo "</tr>";

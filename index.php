@@ -8,7 +8,32 @@ if(isset($_SESSION["login"])){
     header("Location:page-loginn.php");
 }
 
+
 ?>
+
+<?php
+
+
+#toplam
+$toplamSayi= $db->query("SELECT COUNT(users.id) as toplam
+FROM users", PDO::FETCH_ASSOC);
+if ( $toplamSayi->rowCount() )
+{
+     
+
+     foreach( $toplamSayi as $tp ){
+          
+           
+  
+    
+    $tplm=$tp['toplam'];
+ 
+        
+}
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,15 +143,15 @@ if(isset($_SESSION["login"])){
         <li><a class="app-menu__item" href="charts.php"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i>Mahalleler</a></li>
-            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
+            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i>Mahalle Analizleri</a></li>
+            <li><a class="treeview-item" href="birey.php"><i class="icon fa fa-circle-o"></i> Birey Analizleri</a></li>
             <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
             <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">İşlemler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
+            <li><a class="treeview-item" href="onay.php"><i class="icon fa fa-circle-o"></i> Başvuru Onaylama</a></li>
             <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data Tables</a></li>
           </ul>
         </li>
@@ -150,15 +175,22 @@ if(isset($_SESSION["login"])){
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
-              <h4>Users</h4>
-              <p><b>5</b></p>
+              <h4>Başvuru Sayısı</h4>
+              <?php  
+
+                echo "<p>","<b>",$tplm,"</b>","</p>";
+
+
+              ?>
+
+              
             </div>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
             <div class="info">
-              <h4>Likes</h4>
+              <h4>ONAYLANAN</h4>
               <p><b>25</b></p>
             </div>
           </div>
@@ -166,7 +198,7 @@ if(isset($_SESSION["login"])){
         <div class="col-md-6 col-lg-3">
           <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
             <div class="info">
-              <h4>Uploades</h4>
+              <h4>ONAY BEKLEYEN</h4>
               <p><b>10</b></p>
             </div>
           </div>
@@ -174,7 +206,7 @@ if(isset($_SESSION["login"])){
         <div class="col-md-6 col-lg-3">
           <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
             <div class="info">
-              <h4>Stars</h4>
+              <h4>OLUMSUZ</h4>
               <p><b>500</b></p>
             </div>
           </div>

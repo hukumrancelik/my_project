@@ -27,6 +27,7 @@ include("dataBase.php")
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="app sidebar-mini rtl">
+    <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.html">Buca Belediyesi</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
@@ -98,25 +99,24 @@ include("dataBase.php")
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item" href="index.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Anasayfa</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıt İşlemleri</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview is-expanded"><a class="app-menu__item" href="kayitlar.php" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıtlar</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i> Kayıt Ekle</a></li>
-            <li><a class="treeview-item" href="kayitlar.php"  rel="noopener"><i class="icon fa fa-circle-o"></i> Kayıtlar</a></li>
+            <li><a class="treeview-item" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i> Kayıt ekle</a></li>
+            
+              <li><a class="treeview-item active" href="kayitlar.php"><i class="icon fa fa-circle-o"></i>Kayıtlar</a></li>
+            
             
           </ul>
         </li>
         <li><a class="app-menu__item" href="charts.php"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
-        
-        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          
+        <li class="treeview"><a class="app-menu__item" href="charts.php" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Mahalle Analizleri</a></li>
-            <li><a class="treeview-item" href="birey.php"><i class="icon fa fa-circle-o"></i> Birey Analizleri</a></li>
+            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Mahalle Analizleri</a></li>
+            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
             <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
             <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
           </ul>
         </li>
-        
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
@@ -143,31 +143,41 @@ include("dataBase.php")
         <div class="page-header">
           <div class="row">
             <div class="col-lg-12">
-              <h2 class="mb-3 line-head" id="buttons">Mahalle Bazlı Başvuru Sayıları</h2>
+              <h2 class="mb-3 line-head" id="buttons">Kayıtlar</h2>
+
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-7">
+
             
 <?php 
 
               
- $query = $db->query("SELECT adres_bilgileri.mahalle, COUNT(adres_bilgileri.adres_id) as basvuruSayisi
-FROM adres_bilgileri
-GROUP BY adres_bilgileri.mahalle
-ORDER BY basvuruSayisi DESC", PDO::FETCH_ASSOC);
+ $query = $db->query("SELECT users.username,users.username_surname,users.tc_kimlik
+FROM users,adres_bilgileri,sorular
+WHERE 
+users.id=adres_bilgileri.kisi_id
+AND
+users.id=sorular.kisi_ID", PDO::FETCH_ASSOC);
 if ( $query->rowCount() )
 
   echo "<table class='table table-striped'>";
   echo " <thead class='thead-dark'>";
   echo "<tr>";
  
-  echo "<th scope='col'>MAHALLE</th>";
-  echo "<th scope='col'>BAŞVURU SAYISI</th>";
- 
+  echo "<th scope='col'>AD</th>";
+  echo "<th scope='col'>SOYAD</th>";
+  echo "<th scope='col'>TC KİMLİK</th>";
+  echo "<th scope='col'>İŞLEM</th>";
+
   echo "</tr>";
   echo "</thead>";
+
+
+
+
 
 {
      
@@ -178,29 +188,55 @@ if ( $query->rowCount() )
   
     echo "<tr>";
    
-    echo "<td>",$row['mahalle'],"</td>";
-    echo "<td>",$row['basvuruSayisi'],"</td>";
+    echo "<td>",$row['username'],"</td>";
+    echo "<td>",$row['username_surname'],"</td>";
+    echo "<td>",$row['tc_kimlik'],"</td>";
+    echo "<th scope='col'><select class='custom-select custom-select-lg mb-3'>
+  <option selected></option>
+  <option value='Olumlu'>Olumlu</option>
+  <option value='Beklet'>Beklet</option>
+  <option value='Olumsuz'>Olumsuz</option>
+</select></th>";
+
     
 
     echo "</tr>";
+    
  
      
 }
 
+}
 
+       
+
+if(isset($_POST['onay']))
+{
+      $sorgu_gonder=[
+        $_POST['onay_durumu']
+        
+
+                ];
+    
+    
+
+    $sorgu_onay=$db->prepare("insert into users values(NULL,?)"); 
+    $sorgu_onay->execute($sorgu_gonder);
+    
 }
 
 
 
 
-
-
-
+          
  ?>
+<button type='button' class='btn btn-primary btn-lg btn-block' name='onayla'>Değişlikleri Kaydet</button>
+</form>
 
-              
+           </div>    
 
-            </div>
+
+
 
 <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>

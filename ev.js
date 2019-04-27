@@ -2,7 +2,7 @@
 window.onload = function() {
  
  
-var chart= new CanvasJS.Chart("chartContainer_3", {
+var chart = new CanvasJS.Chart("chartContainer_2", {
   theme: "light2",
   animationEnabled: true,
   title: {
@@ -18,10 +18,11 @@ var chart= new CanvasJS.Chart("chartContainer_3", {
     indexLabelFontWeight: "bolder",
     showInLegend: true,
     legendText: "{label}",
-    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+    dataPoints: <?php echo json_encode($dataPoints_2, JSON_NUMERIC_CHECK); ?>
   }]
 });
 chart.render();
  
 }
+
 

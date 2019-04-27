@@ -2,19 +2,19 @@
 include("dataBase.php");
 
 #Net asgari ücretin %50’sine kadar geliri olanlar
-$sorgu_1= $db->query("SELECT COUNT(sorular.yardim_id) as sg1
+$sorgu_1_gelir= $db->query("SELECT COUNT(sorular.yardim_id) as sg1
 FROM sorular
 WHERE sorular.gelir='Net asgari ücretin %50’sine kadar geliri olanlar'", PDO::FETCH_ASSOC);
-if ( $sorgu_1->rowCount() )
+if ( $sorgu_1_gelir->rowCount() )
 {
      
 
-     foreach( $sorgu_1 as $sg1 ){
+     foreach( $sorgu_1_gelir as $sg1_gelir ){
           
            
   
     
-    $a1=$sg1['sg1'];
+    $a1=$sg1_gelir['sg1'];
         
 }
 
@@ -22,19 +22,19 @@ if ( $sorgu_1->rowCount() )
 }
 
 #Net asgari ücretin %50’sinden fazla olup,%100’üne kadar
-$sorgu_2= $db->query("SELECT COUNT(sorular.yardim_id) as sg2
+$sorgu_2_gelir= $db->query("SELECT COUNT(sorular.yardim_id) as sg2
 FROM sorular
 WHERE sorular.gelir='Net asgari ücretin %50’sinden fazla olup,%100’üne kadar geliri olanlar' ", PDO::FETCH_ASSOC);
-if ( $sorgu_2->rowCount() )
+if ( $sorgu_2_gelir->rowCount() )
 {
      
 
-     foreach( $sorgu_2 as $sg2 ){
+     foreach( $sorgu_2_gelir as $sg2_gelir ){
           
            
   
     
-    $a2=$sg2['sg2'];
+    $a2=$sg2_gelir['sg2'];
         
 }
 
@@ -42,25 +42,25 @@ if ( $sorgu_2->rowCount() )
 }
 
 #Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar
-$sorgu_3= $db->query("SELECT COUNT(sorular.yardim_id) as sg3
+$sorgu_3_gelir= $db->query("SELECT COUNT(sorular.yardim_id) as sg3
 FROM sorular
 WHERE sorular.gelir='Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar' ", PDO::FETCH_ASSOC);
-if ( $sorgu_3->rowCount() )
+if ( $sorgu_3_gelir->rowCount() )
 {
      
 
-     foreach( $sorgu_3 as $sg3 ){
+     foreach( $sorgu_3_gelir as $sg3_gelir ){
           
            
   
     
-    $a3=$sg3['sg3'];
+    $a3=$sg3_gelir['sg3'];
         
 }
 
 
 }
-$dataPoints = array( 
+$dataPoints_3 = array( 
 	array("y" => $a1,"label" => "Net asgari ücretin %50’sine kadar olanlar" ),
 	array("y" => $a2,"label" => "Net asgari ücretin %50’sinden fazla olup,%100’üne kadar olanlar" ),
 	array("y" => $a3,"label" => "Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar" )
@@ -79,7 +79,7 @@ $dataPoints = array(
 <script>
 window.onload = function() {
  
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart_3 = new CanvasJS.Chart("chartContainer_3", {
 	animationEnabled: true,
 	title:{
 		text: "GELİR DURUMUNA GÖRE KİŞİ DAĞILIMI"
@@ -96,10 +96,10 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		indexLabelPlacement: "inside",
 		indexLabelFontWeight: "bolder",
 		indexLabelFontColor: "white",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+		dataPoints: <?php echo json_encode($dataPoints_3, JSON_NUMERIC_CHECK); ?>
 	}]
 });
-chart.render();
+chart_3.render();
  
 }
 </script>

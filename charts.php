@@ -3,22 +3,16 @@
 include("dataBase.php");
 
 #kadin_sayisi
-$query= $db->query("SELECT COUNT(users.id)as 'kadin_sayisi'
+$query_kadin= $db->query("SELECT COUNT(users.id)as 'kadin_sayisi'
 FROM users WHERE users.cinsiyet='Kadın' ", PDO::FETCH_ASSOC);
-if ( $query->rowCount() )
+if ( $query_kadin->rowCount() )
 {
      
 
-     foreach( $query as $row ){
-          
-           
-  
-    
-    $kadin=$row['kadin_sayisi'];
+      foreach( $query_kadin as $row_kadin ){
+      $kadin=$row_kadin['kadin_sayisi'];
         
 }
-
-
 }
 
 #erkek_sayisi
@@ -29,11 +23,465 @@ if ( $query_erkek->rowCount() )
      
 
      foreach( $query_erkek as $row_erkek ){
+      $erkek=$row_erkek['erkek_sayisi'];
+        
+}
+}
+
+
+
+
+  $dataPoints_1 = array(
+  array("label"=> "Erkek", "y"=> $erkek),
+  array("label"=> "Kadın", "y"=> $kadin),
+ 
+                    );
+
+ ?>
+
+
+
+
+
+  <!--------------->
+
+  <?php
+
+include("dataBase.php");
+
+#toplam
+$toplamSayi= $db->query("SELECT COUNT(sorular.yardim_id) as toplam
+FROM sorular", PDO::FETCH_ASSOC);
+if ( $toplamSayi->rowCount() )
+{
+     
+
+     foreach( $toplamSayi as $tp ){
           
            
   
     
-    $erkek=$row_erkek['erkek_sayisi'];
+    $tplm=$tp['toplam'];
+ 
+        
+}
+}
+
+
+
+#Kendi Evi(Brüt 70 m2 den fazla ise)
+$sorgu_1= $db->query("SELECT COUNT(sorular.yardim_id) as sg1
+FROM sorular
+WHERE sorular.evin_durumu='Kendi Evi (Brüt 70 m2 den fazla ise)'", PDO::FETCH_ASSOC);
+if ( $sorgu_1->rowCount() )
+{
+     
+
+     foreach( $sorgu_1 as $sg1 ){
+          
+           
+  
+    
+    $a1=$sg1['sg1'];
+    $a1=$a1/$tplm*(100);
+        
+}
+
+
+}
+
+#Kendi Evi(Brüt 70 m2 den küçük ise)
+$sorgu_2= $db->query("SELECT COUNT(sorular.yardim_id) as sg2
+FROM sorular
+WHERE sorular.evin_durumu='Kendi Evi(Brüt 70 m2 den küçük ise)' ", PDO::FETCH_ASSOC);
+if ( $sorgu_2->rowCount() )
+{
+     
+
+     foreach( $sorgu_2 as $sg2 ){
+          
+           
+  
+    
+    $a2=$sg2['sg2'];
+    $a2=$a2/$tplm*(100);
+        
+}
+
+
+}
+
+#Kirada
+$sorgu_3= $db->query("SELECT COUNT(sorular.yardim_id) as sg3
+FROM sorular
+WHERE sorular.evin_durumu='Kirada' ", PDO::FETCH_ASSOC);
+if ( $sorgu_3->rowCount() )
+{
+     
+
+     foreach( $sorgu_3 as $sg3 ){
+          
+           
+  
+    
+    $a3=$sg3['sg3'];
+     $a3=$a3/$tplm*(100);
+        
+}
+
+
+}
+ 
+#Kirası karşılanıyor
+$sorgu_4= $db->query("SELECT COUNT(sorular.yardim_id) as sg4
+FROM sorular
+WHERE sorular.evin_durumu='Kirası karşılanıyor' ", PDO::FETCH_ASSOC);
+if ( $sorgu_4->rowCount() )
+{
+     
+
+     foreach( $sorgu_4 as $sg4 ){
+          
+           
+  
+    
+    $a4=$sg4['sg4'];
+     $a4=$a4/$tplm*(100);
+
+        
+}
+
+
+}
+ 
+
+
+$dataPoints_2 = array( 
+  array("label"=>"Kendi Evi(Brüt 70 m2 den fazla ise)", "y"=>$a1),
+  array("label"=>"Kendi Evi(Brüt 70 m2 den küçük ise)", "y"=>$a2),
+  array("label"=>"Kirada", "y"=>$a3),
+  array("label"=>"Kirası karşılanıyor", "y"=>$a4)
+)
+
+?>
+
+<!-------------------------->
+
+<?php 
+
+#Net asgari ücretin %50’sine kadar geliri olanlar
+$sorgu_1_gelir= $db->query("SELECT COUNT(sorular.yardim_id) as sg1
+FROM sorular
+WHERE sorular.gelir='Net asgari ücretin %50’sine kadar geliri olanlar'", PDO::FETCH_ASSOC);
+if ( $sorgu_1_gelir->rowCount() )
+{
+     
+
+     foreach( $sorgu_1_gelir as $sg1_gelir ){
+          
+           
+  
+    
+    $a1=$sg1_gelir['sg1'];
+        
+}
+
+
+}
+
+#Net asgari ücretin %50’sinden fazla olup,%100’üne kadar
+$sorgu_2_gelir= $db->query("SELECT COUNT(sorular.yardim_id) as sg2
+FROM sorular
+WHERE sorular.gelir='Net asgari ücretin %50’sinden fazla olup,%100’üne kadar geliri olanlar' ", PDO::FETCH_ASSOC);
+if ( $sorgu_2_gelir->rowCount() )
+{
+     
+
+     foreach( $sorgu_2_gelir as $sg2_gelir ){
+          
+           
+  
+    
+    $a2=$sg2_gelir['sg2'];
+        
+}
+
+
+}
+
+#Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar
+$sorgu_3_gelir= $db->query("SELECT COUNT(sorular.yardim_id) as sg3
+FROM sorular
+WHERE sorular.gelir='Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar' ", PDO::FETCH_ASSOC);
+if ( $sorgu_3_gelir->rowCount() )
+{
+     
+
+     foreach( $sorgu_3_gelir as $sg3_gelir ){
+          
+           
+  
+    
+    $a3=$sg3_gelir['sg3'];
+        
+}
+
+
+}
+$dataPoints_3 = array( 
+  array("y" => $a1,"label" => "Net asgari ücretin %50’sine kadar olanlar" ),
+  array("y" => $a2,"label" => "Net asgari ücretin %50’sinden fazla olup,%100’üne kadar olanlar" ),
+  array("y" => $a3,"label" => "Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar" )
+  
+
+);
+ 
+
+
+
+
+ ?>
+
+<!-------------GRAFİK 4------------------>
+
+<?php
+
+include("dataBase.php");
+
+#toplam
+$toplamSayi= $db->query("SELECT COUNT(sorular.yardim_id) as toplam
+FROM sorular", PDO::FETCH_ASSOC);
+if ( $toplamSayi->rowCount() )
+{
+     
+
+     foreach( $toplamSayi as $tp ){
+          
+           
+  
+    
+    $tplm=$tp['toplam'];
+
+ 
+        
+}
+}
+
+
+
+
+#İyi
+$durumIyi= $db->query("SELECT COUNT(sorular.yardim_id) as iyiSayisi
+FROM sorular
+WHERE sorular.fiziki_durum='İyi' ", PDO::FETCH_ASSOC);
+if ( $durumIyi->rowCount() )
+{
+     
+
+     foreach( $durumIyi as $diyi ){
+          
+           
+  
+    
+    $d1=$diyi['iyiSayisi'];
+     $d1=$d1/$tplm*(100);
+        
+}
+
+
+}
+
+
+#Normal
+$durumNormal= $db->query("SELECT COUNT(sorular.yardim_id) as NormalSayisi
+FROM sorular
+WHERE sorular.fiziki_durum='Normal' ", PDO::FETCH_ASSOC);
+if ( $durumNormal->rowCount() )
+{
+     
+
+     foreach( $durumNormal as $Niyi ){
+          
+           
+  
+    
+    $d2=$Niyi['NormalSayisi'];
+      $d2=$d2/$tplm*(100);
+        
+}
+
+
+}
+
+#Kötü
+$durumKotu= $db->query("SELECT COUNT(sorular.yardim_id) as KotuSayisi
+FROM sorular
+WHERE sorular.fiziki_durum='Kötü' ", PDO::FETCH_ASSOC);
+if ( $durumKotu->rowCount() )
+{
+     
+
+     foreach( $durumKotu as $dKotu ){
+          
+           
+  
+    
+    $d3=$dKotu['KotuSayisi'];
+      $d3=$d3/$tplm*(100);
+        
+}
+
+}
+
+$dataPoints_4= array( 
+  array("label"=>"İyi", "symbol" => "İyi","y"=>$d1),
+  array("label"=>"Kötü", "symbol" => "Normal","y"=>$d2),
+  array("label"=>"Normal", "symbol" => "Kötü","y"=>$d3)
+  
+)
+ 
+?>
+
+<!----------------GRAFİK 5------------------->
+
+<?php
+ 
+ include("dataBase.php");
+
+#toplam
+$toplamSayi= $db->query("SELECT COUNT(sorular.yardim_id) as toplam
+FROM sorular", PDO::FETCH_ASSOC);
+if ( $toplamSayi->rowCount() )
+{
+     
+
+     foreach( $toplamSayi as $tp ){
+          
+           
+  
+    
+    $tplm=$tp['toplam'];
+
+ 
+        
+}
+}
+
+
+
+
+#Soba
+$durumSoba= $db->query("SELECT COUNT(sorular.yardim_id) as SobaSayisi
+FROM sorular
+WHERE sorular.isinma_durumu='Soba' ", PDO::FETCH_ASSOC);
+if ( $durumSoba->rowCount() )
+{
+     
+
+     foreach( $durumSoba as $dSoba )   {
+          
+           
+  
+    
+    $e1=$dSoba['SobaSayisi'];
+     $e1=$e1/$tplm*(100);
+        
+}
+
+
+}
+
+
+#Kolarifer
+$durumKalo= $db->query("SELECT COUNT(sorular.yardim_id) as KaloSayisi
+FROM sorular
+WHERE sorular.isinma_durumu='Kalorifer' ", PDO::FETCH_ASSOC);
+if ( $durumKalo->rowCount() )
+{
+     
+
+     foreach( $durumKalo as $dKalo ){
+          
+           
+  
+  $e2=$dKalo['KaloSayisi'];
+     $e2=$e2/$tplm*(100);
+}
+}
+
+
+
+
+
+#Diğer
+$durumDiger= $db->query("SELECT COUNT(sorular.yardim_id) as DigerSayisi
+FROM sorular
+WHERE sorular.isinma_durumu='Diğer' ", PDO::FETCH_ASSOC);
+if ( $durumDiger->rowCount() )
+{
+     
+
+     foreach( $durumDiger as $dDiger ){
+          
+           
+  
+  $e3=$dDiger['DigerSayisi'];
+     $e3=$e3/$tplm*(100);
+}
+
+
+}
+
+
+
+$dataPoints_5= array( 
+  array("label"=>"Soba", "y"=>$e1),
+  array("label"=>"Kalorifer", "y"=>$e2),
+  array("label"=>"Diger", "y"=>$e3)
+  
+)
+ 
+?>
+<!----------------------GRAFİK 6----------->
+<?php
+ 
+include("dataBase.php");
+
+
+#kadin_yas
+$query_kadin_ort= $db->query("SELECT AVG(users.yas) as ort_kadin
+FROM users
+WHERE users.cinsiyet='Kadın' ", PDO::FETCH_ASSOC);
+if ( $query_kadin_ort->rowCount() )
+{
+     
+
+     foreach( $query_kadin_ort as $row_kadin_ort ){
+          
+           
+  
+    
+    $kadin_ort=$row_kadin_ort['ort_kadin'];
+        
+}
+
+
+}
+
+#erkek_yas
+$query_erkek_ort = $db->query("SELECT AVG(users.yas) as ort_erkek
+FROM users
+WHERE users.cinsiyet='Erkek' ", PDO::FETCH_ASSOC);
+if ( $query_erkek_ort->rowCount() )
+{
+     
+
+     foreach( $query_erkek_ort as $row_erkek_ort ){
+          
+           
+  
+    
+    $erkek_ort=$row_erkek_ort['ort_erkek'];
         
 }
 
@@ -43,23 +491,13 @@ if ( $query_erkek->rowCount() )
 
 
 
-$dataPoints = array(
-  array("label"=> "Erkek", "y"=> $erkek),
-  array("label"=> "Kadın", "y"=> $kadin),
+
+$dataPoints_6 = array( 
+  array("y" => $erkek_ort, "label" => "ERKEK" ),
+  array("y" => $kadin_ort, "label" => "KADIN" )
+);
  
-                    );
-
- ?>
-
-
- <?php 
-
-
-
-
-
-
-  ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,6 +523,7 @@ $dataPoints = array(
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+     
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
@@ -165,7 +604,7 @@ $dataPoints = array(
            
           </ul>
         </li>
-        <li><a class="app-menu__item active" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
+        <li><a class="app-menu__item active" href="charts.php"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i>Mahalle Analizler</a></li>
@@ -202,59 +641,57 @@ $dataPoints = array(
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">charts</a></li>
+          <li class="breadcrumb-item"><a href="#">Grafikler</a></li>
         </ul>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          <div id="chartContainer_1" style="height: 370px; width: 100%;"></div>
           <div class="tile">
             
           </div>
         </div>
+        
         <div class="col-md-6">
           <div class="tile">
-            <h3 class="tile-title">Bar Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="barChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Radar Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="radarChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Polar Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="polarChartDemo"></canvas>
-            </div>
+            <h3 class="tile-title"></h3>
+            <div id="chartContainer_6" style="height: 370px; width: 100%;"></div>
+
           </div>
         </div>
         
-
-<div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Line Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
-            </div>
-          </div>
-
-
-
-
-        </div>
         <div class="col-md-6">
           <div class="tile">
-            <h3 class="tile-title">Doughnut Chart</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="doughnutChartDemo"></canvas>
+            <h3 class="tile-title"></h3>
+             <div id="chartContainer_2" style="height: 370px; width: 100%;">
+          </div>
+        </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title"></h3>
+            <div class="">
+              <div id="chartContainer_4" style="height: 370px; width: 100%;">
+            </div>
+          </div>
+        </div>
+        </div>
+        
+
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title"></h3>
+            <div id="chartContainer_3" style="height: 370px; width: 100%;">
+          </div>
+        </div>
+        </div>
+        
+
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title"></h3>
+            <div id="chartContainer_5" style="height: 370px; width: 100%;">
             </div>
           </div>
         </div>
@@ -269,93 +706,14 @@ $dataPoints = array(
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
 
-
-
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-
-
-
-
-
-      var pdata = [
-      	{
-      		value: 50,
-      		color:"Pink",
-      		highlight: "#FF5A5E",
-      		label: "Kadın"
-      	},
-      	
-       
-        {
-      		value: 50,
-      		color: "Blue",
-      		highlight: "#FFC870",
-      		label: "Erkek"
-      	}
-      ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxb = $("#barChartDemo").get(0).getContext("2d");
-      var barChart = new Chart(ctxb).Bar(data);
-      
-      var ctxr = $("#radarChartDemo").get(0).getContext("2d");
-      var radarChart = new Chart(ctxr).Radar(data);
-      
-      var ctxpo = $("#polarChartDemo").get(0).getContext("2d");
-      var polarChart = new Chart(ctxpo).PolarArea(pdata);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
-      
-      var ctxd = $("#doughnutChartDemo").get(0).getContext("2d");
-      var doughnutChart = new Chart(ctxd).Doughnut(pdata);
-    </script>
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
-      }
-    </script>
-
+<!--------grafik 1------------>
 <script>
 window.onload = function () {
  
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart_1 = new CanvasJS.Chart("chartContainer_1", {
   animationEnabled: true,
-  exportEnabled: true,
+  exportEnabled: false,
   title:{
     text: "Cinsiyet Dağılımına Göre Başvuru Sayıları"
   },
@@ -368,16 +726,120 @@ var chart = new CanvasJS.Chart("chartContainer", {
     legendText: "{label}",
     indexLabelFontSize: 16,
     indexLabel: "{label} - #percent%",
-    yValueFormatString: "฿#,##0",
-    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+    yValueFormatString: "#,##0",
+    dataPoints: <?php echo json_encode($dataPoints_1, JSON_NUMERIC_CHECK); ?>
   }]
 });
-chart.render();
+chart_1.render();
  
 }
 </script>
 
+<!--------grafik 2------------>
 
+<script type="text/javascript">
+  
+
+ {
+ 
+ 
+var chart_2 = new CanvasJS.Chart("chartContainer_2", {
+  theme: "light1",
+  animationEnabled: true,
+  title: {
+    text: "Evin Mülkiyet Durumuna Göre"
+  },
+  data: [{
+    type: "pie",
+    indexLabel: "{y}",
+    yValueFormatString: "\"%\"#,##0.00",
+    indexLabelPlacement: "inside",
+    indexLabelFontColor: "#36454F",
+    indexLabelFontSize: 18,
+    indexLabelFontWeight: "bolder",
+    showInLegend: true,
+    legendText: "{label}",
+    dataPoints: <?php echo json_encode($dataPoints_2, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart_2.render();
+ 
+}
+
+
+var chart_3 = new CanvasJS.Chart("chartContainer_3", {
+  animationEnabled: true,
+  title:{
+    text: "GELİR DURUMUNA GÖRE KİŞİ DAĞILIMI"
+  },
+  axisY: {
+    title: "Kişi Sayısı ",
+    prefix: "",
+    suffix:  ""
+  },
+  data: [{
+    type: "bar",
+    yValueFormatString: "#,##0 kişi",
+    indexLabel: "{y}",
+    indexLabelPlacement: "inside",
+    indexLabelFontWeight: "bolder",
+    indexLabelFontColor: "white",
+    dataPoints: <?php echo json_encode($dataPoints_3, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart_3.render();
+
+var chart_4 = new CanvasJS.Chart("chartContainer_4", {
+  theme: "light1",
+  animationEnabled: true,
+  title: {
+    text: "Ev Fiziki Duruma Göre"
+  },
+  data: [{
+    type: "doughnut",
+    indexLabel: "{symbol} - {y}",
+    yValueFormatString: "#,##0.0\"%\"",
+    showInLegend: true,
+    legendText: "{label} : {y}",
+    dataPoints: <?php echo json_encode($dataPoints_4, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart_4.render();
+ 
+
+var chart_5= new CanvasJS.Chart("chartContainer_5", {
+  animationEnabled: true,
+  title: {
+    text: "Başvuru Yapan Evlerin Isınma Durumu"
+  },
+  data: [{
+    type: "pyramid",
+    indexLabel: "{label} -% {y}",
+    yValueFormatString: "#,##0.00",
+    dataPoints: <?php echo json_encode($dataPoints_5, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart_5.render();
+ 
+var chart_6= new CanvasJS.Chart("chartContainer_6", {
+  animationEnabled: true,
+  theme: "light3",
+  title:{
+    text: "YAŞ ARALIĞINA GÖRE BAŞVURU SAYILARI"
+  },
+  axisY: {
+    title: "Yaş"
+  },
+  data: [{
+    type: "column",
+    yValueFormatString: "#,##0.## yaş",
+    dataPoints: <?php echo json_encode($dataPoints_6, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart_6.render();
+ 
+
+</script>
 
 
   </body>

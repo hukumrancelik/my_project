@@ -88,7 +88,7 @@ if ( $durumDiger->rowCount() )
 
 
 
-$dataPoints = array( 
+$dataPoints_5= array( 
 	array("label"=>"Soba", "y"=>$e1),
 	array("label"=>"Kalorifer", "y"=>$e2),
 	array("label"=>"Diger", "y"=>$e3)
@@ -102,7 +102,7 @@ $dataPoints = array(
 <script>
 window.onload = function() {
  
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart_5= new CanvasJS.Chart("chartContainer_5", {
 	animationEnabled: true,
 	title: {
 		text: "Başvuru Yapan Evlerin Isınma Durumu"
@@ -111,10 +111,10 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		type: "pyramid",
 		indexLabel: "{label} -% {y}",
 		yValueFormatString: "#,##0.00",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+		dataPoints: <?php echo json_encode($dataPoints_5, JSON_NUMERIC_CHECK); ?>
 	}]
 });
-chart.render();
+chart_5.render();
  
 }
 </script>

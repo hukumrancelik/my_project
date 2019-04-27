@@ -87,7 +87,7 @@ if ( $durumKotu->rowCount() )
 
 }
 
-$dataPoints = array( 
+$dataPoints_4= array( 
 	array("label"=>"İyi", "symbol" => "İyi","y"=>$d1),
 	array("label"=>"Kötü", "symbol" => "Normal","y"=>$d2),
 	array("label"=>"Normal", "symbol" => "Kötü","y"=>$d3)
@@ -101,7 +101,7 @@ $dataPoints = array(
 <script>
 window.onload = function() {
  
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart_4 = new CanvasJS.Chart("chartContainer_4", {
 	theme: "light2",
 	animationEnabled: true,
 	title: {
@@ -113,10 +113,10 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		yValueFormatString: "#,##0.0\"%\"",
 		showInLegend: true,
 		legendText: "{label} : {y}",
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+		dataPoints: <?php echo json_encode($dataPoints_4, JSON_NUMERIC_CHECK); ?>
 	}]
 });
-chart.render();
+chart_4.render();
  
 }
 </script>
