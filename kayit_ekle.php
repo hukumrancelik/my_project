@@ -29,7 +29,7 @@ if(isset($_POST['kaydet']))
         $_POST["cinsiyet"],
         $_POST["dg"],
         $_POST["yas"]=0,
-        $_POST["ona_ydurumu"]
+        $_POST["onay_durumu"]
 
 
                 ];
