@@ -111,96 +111,48 @@ if(isset($_POST['kaydet']))
 
 
 <!DOCTYPE html>
-<html lang="tr">
-  <head>
-
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <!-- Twitter meta-->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:site" content="@pratikborsadiya">
-    <meta property="twitter:creator" content="@pratikborsadiya">
-    <!-- Open Graph Meta-->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Vali Admin">
-    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
-    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
-    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
-    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Kayıt Ekle</title>
-    <meta charset="utf-8">
+ <meta charset="utf-8">
+ <title>Kayıt Ekle</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="main_3.css">
+
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
+
+    <!--Galeri-->
+  
+  <link rel="image_src" href="/images/immersive_slider_image.png" />
+  <meta content="http://www.thepetedesign.com/demos/immersive_slider_demo.html" property="og:url" />
+  <meta content="http://www.thepetedesign.com/images/immersive_slider_image.png" property="og:image" />
+  <link rel="shortcut icon" id="favicon" href="favicon.png"> 
+  <meta name="author" content="Pete R.">
+  <link rel="canonical" href="http://www.thepetedesign.com/demos/immersive_slider_demo.html" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="galeri_css_js/jquery.immersive-slider.js"></script>
+  <link href='galeri_css_js/immersive-slider.css' rel='stylesheet' type='text/css'>
+  <link href='galeri_css_js/galleri_css.css' rel='stylesheet' type='text/css'>
   </head>
+  
   <body class="app sidebar-mini rtl">
-    
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="generatedtext.png">Buca Belediyesi</a>
-      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+    <header class="app-header"><a class="app-header__logo" href="index.php">Buca Belediyesi</a>
+      <!-- Sidebar toggle button-->
+      
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
-        <li class="app-search">
-          <input class="app-search__input" type="search" placeholder="Search">
-          <button class="app-search__button"><i class="fa fa-search"></i></button>
-        </li>
+        
         <!--Notification Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
-          <ul class="app-notification dropdown-menu dropdown-menu-right">
-            <li class="app-notification__title">You have 4 new notifications.</li>
-            <div class="app-notification__content">
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Lisa sent you a mail</p>
-                    <p class="app-notification__meta">2 min ago</p>
-                  </div></a></li>
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Mail server not working</p>
-                    <p class="app-notification__meta">5 min ago</p>
-                  </div></a></li>
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Transaction complete</p>
-                    <p class="app-notification__meta">2 days ago</p>
-                  </div></a></li>
-              <div class="app-notification__content">
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Lisa sent you a mail</p>
-                      <p class="app-notification__meta">2 min ago</p>
-                    </div></a></li>
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Mail server not working</p>
-                      <p class="app-notification__meta">5 min ago</p>
-                    </div></a></li>
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Transaction complete</p>
-                      <p class="app-notification__meta">2 days ago</p>
-                    </div></a></li>
-              </div>
-            </div>
-            <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
-          </ul>
-        </li>
+        
+          
         <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
-          <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Ayarlar</a></li>
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profil</a></li>
-            <li><a class="dropdown-item" href="giris.php"><i class="fa fa-sign-out fa-lg"></i> Çıkış</a></li>
-          </ul>
-        </li>
-      </ul>
+        
     </header>
     <!-- Sidebar menu-->
-   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
         <div>
@@ -209,57 +161,42 @@ if(isset($_POST['kaydet']))
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item" href="index.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Anasayfa</span></a></li>
-        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kayıt İşlemleri</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li><a class="app-menu__item " href="index.php"><span class="app-menu__label">Anasayfa</span></a></li>
+        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"></i>
+
+          <span >Kayıt İşlemleri</a>
           <ul class="treeview-menu">
-             <li><a class="treeview-item active" href="kayit_ekle.php"><i class="icon fa fa-circle-o"></i> Kayıt Ekle</a></li>
+             <li><a class="treeview-item active" href="kayit_ekle.php"> Kayıt Ekle</a></li>
 
 
-            <li><a class="treeview-item" href="kayitlar.php"><i class="icon fa fa-circle-o"></i> Kayıtlar </a></li>
+            <li><a class="treeview-item" href="kayitlar.php"> Kayıtlar </a></li>
             
           </ul>
         </li>
-        <li><a class="app-menu__item" href="charts.php"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Grafikler</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Analizler</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+
+        <li><a class="app-menu__item" href="charts.php"><span class="app-menu__label">Grafikler</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="mahalle.php"><i class="icon fa fa-circle-o"></i> Mahalle Analizleri</a></li>
-            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
-            <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Kayıt Ekle</a></li>
-            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
+            <li><a class="treeview-item" href="mahalle.php">Mahalle Analizleri</a></li>
+            <li><a class="treeview-item" href="birey.php"> Birey Analizleri</a></li>
+            <li class="treeview"><a class="app-menu__item" href="#" ><span class="app-menu__label">Cinsiyet Analizleri</span></a>
+            <ul class="treeview-menu">
+              <li><i><a class="treeview-item" href="birey_kadin.php" >Kadın</i></a></li>
+              <li><i><a class="treeview-item" href="birey_erkek.php">Erkek</i></a></li>
+            </ul>
+          </ul>
+            
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="onay.php">Başvuru Onaylama</a></li>
+            <li><a class="treeview-item" href="table-data-table.html"> Data Tables</a></li>
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
-            <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data Tables</a></li>
-          </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pages</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i> Login Page</a></li>
-            <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i> Lockscreen Page</a></li>
-            <li><a class="treeview-item" href="page-user.html"><i class="icon fa fa-circle-o"></i> User Page</a></li>
-            <li><a class="treeview-item" href="page-invoice.html"><i class="icon fa fa-circle-o"></i> Invoice Page</a></li>
-            <li><a class="treeview-item" href="page-calendar.html"><i class="icon fa fa-circle-o"></i> Calendar Page</a></li>
-            <li><a class="treeview-item" href="page-mailbox.html"><i class="icon fa fa-circle-o"></i> Mailbox</a></li>
-            <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a></li>
-          </ul>
-        </li>
-      </ul>
+        <li class="treeview"><a class="app-menu__item" href="giris.php" ><span class="app-menu__label">ÇIKIŞ</span></a>
     </aside>
     <main class="app-content">
       <div class="app-title">
-        <div>
-          <h1><i class="fa fa-edit"></i> Kayıt Ekle</h1>
-
-          <p>Kayıtlar</p>
-        </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item">Kayıt Ekle</li>
-          <li class="breadcrumb-item"><a href="#">Kayıtlar</a></li>
-        </ul>
       </div>
       <div class="row">
         <div class="col-md-6">
