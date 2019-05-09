@@ -5,12 +5,12 @@ include("dataBase.php")
 <!DOCTYPE html>
 <html lang="utf-8">
   <head>
-    <title>Birey Analizleri</title>
+    <title>Birey Analizleri-Kadın</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="main_3.css">
+    <link rel="stylesheet" type="text/css" href="main_dene.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
@@ -20,30 +20,15 @@ include("dataBase.php")
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.php">Buca Belediyesi</a>
-      <!-- Sidebar toggle button-->
-      
-      <!-- Navbar Right Menu-->
-      <ul class="app-nav">
-        
-        <!--Notification Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
-          
-        <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
-          <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            
-            <li><a class="dropdown-item" href="giris.php"><i class="fa fa-sign-out fa-lg"></i> Çıkış</a></li>
-          </ul>
-        </li>
-      </ul>
+     
     </header>
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+      <div class="app-sidebar__user">
         <div>
-          <p class="app-sidebar__user-name">Ahmet Yılmaz</p>
-          <p class="app-sidebar__user-designation">Yönetici</p>
+           <p class="app-sidebar__user-name">Hükümran Çelik</p>
+          <p class="app-sidebar__user-designation">Sosyal Hizmetler Yöneticisi</p>
         </div>
       </div>
      <ul class="app-menu">

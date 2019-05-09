@@ -10,7 +10,7 @@ include("dataBase.php")
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="main_3.css">
+    <link rel="stylesheet" type="text/css" href="main_dene.css">
 
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,24 +34,15 @@ include("dataBase.php")
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.php">Buca Belediyesi</a>
-      <!-- Sidebar toggle button-->
       
-      <!-- Navbar Right Menu-->
-      <ul class="app-nav">
-        
-        <!--Notification Menu-->
-        
-          
-        <!-- User Menu-->
-        
     </header>
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+      <div class="app-sidebar__user">
         <div>
-          <p class="app-sidebar__user-name">Ahmet Yılmaz</p>
-          <p class="app-sidebar__user-designation">Yönetici</p>
+           <p class="app-sidebar__user-name">Hükümran Çelik</p>
+          <p class="app-sidebar__user-designation">Sosyal Hizmetler Yöneticisi</p>
         </div>
       </div>
       <ul class="app-menu">
@@ -115,97 +106,53 @@ include("dataBase.php")
               
  $query = $db->query("SELECT upper(concat(users.id,')' ,users.username,' ',users.username_surname)) as adSoyad, users.id as id
 FROM users", PDO::FETCH_ASSOC);
-if ( $query->rowCount() )
+if ( $query->rowCount() ){
+
+
+
 
    echo  "<div class='form-group'>";
-    
-    echo "<select class= 'form-control' id= 'exampleFormControlSelect1'>";
-    
-    
-      
-  echo "</div>";
+    echo "<select name='silKayit' class= 'form-control' id= 'exampleFormControlSelect1'>";
+    echo "</div>";
 
-{
+}
      
 
      foreach( $query as $row ){
           
            
-   echo "<option>".$row['adSoyad']."</option>";
-                  $idSil=$row['id'];
-  
-}
-
-
-
- 
-$kayitSil = $db->exec("DELETE FROM users WHERE users.id = '".$idSil."' ");
-
-
-
+                echo '<option value="'.$row['id'].'">'.$row['adSoyad'].'</option>';
+                 
 
 
     
 }
 
 
-    
+  if(isset($_POST['sil']))
+{
+      $formliste=[
+        
+        $idSil=$_POST['silKayit']
+       
+
+                ];
+    $sorgu=$db->prepare("DELETE FROM users WHERE users.id = '".$idSil."' "); 
+    $sorgu->execute($formliste);
 
 
-    
+    }
 
 
 
  ?>
 
- 
+
                    
 
             </div>
 </form>
-<!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/jquery.vmap.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.vmap.world.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.vmap.sampledata.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-      
-        var map = $('#demo-map');
-        map.vectorMap({
-          map: 'world_en',
-          backgroundColor: '#fff',
-          color: '#333',
-          hoverOpacity: 0.7,
-          selectedColor: '#666666',
-          enableZoom: true,
-          showTooltip: true,
-          scaleColors: ['#C8EEFF', '#006491'],
-          values: sample_data,
-          normalizeFunction: 'polynomial'
-        });
-      });
-    </script>
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-72504830-1', 'auto');
-        ga('send', 'pageview');
-      }
-    </script>
 
-
-        
     
   </body>
 

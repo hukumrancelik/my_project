@@ -506,7 +506,7 @@ $dataPoints_6 = array(
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="main_3.css">
+    <link rel="stylesheet" type="text/css" href="main_dene.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
@@ -530,10 +530,10 @@ $dataPoints_6 = array(
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+      <div class="app-sidebar__user">
         <div>
-          <p class="app-sidebar__user-name">Ahmet Yılmaz</p>
-          <p class="app-sidebar__user-designation">Yönetici</p>
+          <p class="app-sidebar__user-name">Hükümran Çelik</p>
+          <p class="app-sidebar__user-designation">Sosyal Hizmetler Yöneticisi</p>
         </div>
       </div>
       <ul class="app-menu">

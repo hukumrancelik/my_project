@@ -10,7 +10,7 @@ include("dataBase.php")
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="main_3.css">
+    <link rel="stylesheet" type="text/css" href="main_dene.css">
 
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,10 +48,10 @@ include("dataBase.php")
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+      <div class="app-sidebar__user">
         <div>
-          <p class="app-sidebar__user-name">Ahmet Yılmaz</p>
-          <p class="app-sidebar__user-designation">Yönetici</p>
+          <p class="app-sidebar__user-name">Hükümran Çelik</p>
+          <p class="app-sidebar__user-designation">Sosyal Hizmetler Yöneticisi</p>
         </div>
       </div>
       <ul class="app-menu">
@@ -105,7 +105,7 @@ include("dataBase.php")
 <?php 
 
               
- $query = $db->query("SELECT users.id as id, upper(users.username) as username,upper(users.username_surname) as username_surname,users.tc_kimlik,users.yas,users.user_tel,adres_bilgileri.mahalle,sorular.evin_durumu, users.onay_durumu
+ $query = $db->query("SELECT users.id as id, upper(users.username) as username,upper(users.username_surname) as username_surname,users.tc_kimlik,users.yas,users.user_tel,adres_bilgileri.mahalle,sorular.evin_durumu, users.onay_durumu, CURRENT_TIMESTAMP() as kayit_tarihi
 FROM users,adres_bilgileri,sorular
 WHERE 
 users.id=adres_bilgileri.kisi_id
@@ -126,7 +126,7 @@ if ( $query->rowCount() )
   echo "<th scope='col'>TELEFON</th>";
   echo "<th scope='col'>MAHALLE</th>";
   echo "<th scope='col'>EV DURUMU</th>";
-  echo "<th scope='col'>İHTİYAÇ ORANI</th>";
+  echo "<th scope='col'>KAYIT TARİHİ</th>";
   echo "<th scope='col'>ONAY DURUMU</th>";
   echo "</tr>";
   echo "</thead>";
@@ -147,7 +147,7 @@ if ( $query->rowCount() )
     echo "<td>",$row['user_tel'],"</td>";
     echo "<td>",$row['mahalle'],"</td>";
      echo "<td>",$row['evin_durumu'],"</td>";
-       echo "<td></td>";
+       echo "<td>",$row['kayit_tarihi'],"</td>";
          echo "<td>",$row['onay_durumu'],"</td>";
     
 
