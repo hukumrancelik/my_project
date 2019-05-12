@@ -84,7 +84,7 @@ include("dataBase.php")
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="onay.php">Başvuru Onaylama</a></li>
-            <li><a class="treeview-item" href="table-data-table.html"> Data Tables</a></li>
+            <li><a class="treeview-item" href="kayitSilme.php">Kayıt Silme</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="giris.php" ><span class="app-menu__label">ÇIKIŞ</span></a>
@@ -105,10 +105,12 @@ include("dataBase.php")
 <?php 
 
               
- $query = $db->query("SELECT users.id as id, upper(users.username) as username,upper(users.username_surname) as username_surname,users.tc_kimlik,users.yas,users.user_tel,adres_bilgileri.mahalle,sorular.evin_durumu, users.onay_durumu, CURRENT_TIMESTAMP() as kayit_tarihi
-FROM users,adres_bilgileri,sorular
+ $query = $db->query("SELECT users.id as id, upper(users.username) as username,upper(users.username_surname) as username_surname,users.tc_kimlik,users.yas,users.user_tel,adres_bilgileri.mahalle,concat (ihtiyac_oranlari.oranlar,' ','Puan') AS oran, users.onay_durumu, CURRENT_TIMESTAMP() as kayit_tarihi
+FROM users,adres_bilgileri,sorular,ihtiyac_oranlari
 WHERE 
 users.id=adres_bilgileri.kisi_id
+AND
+users.id=ihtiyac_oranlari.kisi_no
 AND
 users.id=sorular.kisi_ID", PDO::FETCH_ASSOC);
 if ( $query->rowCount() )
@@ -125,8 +127,8 @@ if ( $query->rowCount() )
   echo "<th scope='col'>YAŞ</th>";
   echo "<th scope='col'>TELEFON</th>";
   echo "<th scope='col'>MAHALLE</th>";
-  echo "<th scope='col'>EV DURUMU</th>";
   echo "<th scope='col'>KAYIT TARİHİ</th>";
+   echo "<th scope='col'>İHİYAÇ PUANI</th>";
   echo "<th scope='col'>ONAY DURUMU</th>";
   echo "</tr>";
   echo "</thead>";
@@ -146,8 +148,8 @@ if ( $query->rowCount() )
     echo "<td>",$row['yas'],"</td>";
     echo "<td>",$row['user_tel'],"</td>";
     echo "<td>",$row['mahalle'],"</td>";
-     echo "<td>",$row['evin_durumu'],"</td>";
        echo "<td>",$row['kayit_tarihi'],"</td>";
+       echo "<td>",$row['oran'],"</td>";
          echo "<td>",$row['onay_durumu'],"</td>";
     
 

@@ -69,17 +69,17 @@ if(isset($_POST['kaydet']))
 {
       $sorular_gonder=[
         $_POST['kisi_ID']=$id,
-        $_POST['gelir'],
-        $_POST['evin_durumu'],
-        $_POST['fiziki_durum'],
-        $_POST['isinma_durumu'],
-        $_POST["aile_birey"],
-        $_POST["okuyan_sayi"],
-        $_POST["uni_sayisi"],
-        $_POST["y_maas"],
-        $_POST["ozur_maas"],
-        $_POST["kurum"],
-        $_POST["calisan_kisi"]
+        $gelir=$_POST['gelir'],
+        $evin_durumu=$_POST['evin_durumu'],
+        $fiziki_durum=$_POST['fiziki_durum'],
+        $isinma_durumu=$_POST['isinma_durumu'],
+        $aile_birey=$_POST["aile_birey"],
+        $okuyan_sayi=$_POST["okuyan_sayi"],
+        $uni_sayisi=$_POST["uni_sayisi"],
+        $y_maas=$_POST["y_maas"],
+        $ozur_maas=$_POST["ozur_maas"],
+        $kurum=$_POST["kurum"],
+        $calisan_kisi=$_POST["calisan_kisi"]
 
                 ];
     $sorgu_sorular=$db->prepare("insert into sorular values(NULL,?,?,?,?,?,?,?,?,?,?,?,?)"); 
@@ -88,6 +88,254 @@ if(isset($_POST['kaydet']))
     
 }
 
+switch ($gelir) {
+  case 'Net asgari ücretin %50’sine kadar olanlar':
+    $gel=8;
+    break;
+
+    case 'Net asgari ücretin %50’sinden fazla olup,%100’üne kadar olanlar':
+    $gel=2;
+    break;
+
+    case 'Net asgari ücretin %100’ünden fazla olup %160’a kadar geliri olanlar':
+    $gel=1;
+    break;
+
+  default:
+    # code...
+    break;
+
+    #10
+}
+
+switch ($evin_durumu) {
+  case 'Kendi Evi(Brüt 70 m2 den fazla ise)':
+    $ed=0;
+    break;
+
+    case 'Kendi Evi(Brüt 70 m2 den küçük ise)':
+    $ed=2;
+    break;
+
+    case 'Kirada':
+    $ed=8;
+    break;
+
+    case 'Kirası karşılanıyor':
+    $ed=1;
+    break;
+
+  default:
+    # code...
+    break;
+
+    #11
+}
+
+switch ($fiziki_durum) {
+  case 'İyi':
+    $fd=1;
+    break;
+
+    case 'Kötü':
+    $fd=6;
+    break;
+
+    case 'Normal':
+    $fd=2;
+    break;
+
+  
+  default:
+    # code...
+    break;
+
+    #9
+}
+
+switch ($isinma_durumu) {
+  case 'Soba':
+    $isin=5;
+    break;
+
+    case 'Kolarifer':
+    $isin=1;
+    break;
+
+    case 'Diğer':
+    $isin=3;
+    break;
+
+
+  default:
+    # code...
+    break;
+
+    #9
+}
+
+
+switch ($aile_birey) {
+  case '1':
+    $ab=0;
+    break;
+
+    case '2':
+    $ab=1;
+    break;
+
+    case '3':
+    $ab=2;
+    break;
+
+    case '4':
+    $ab=3;
+    break;
+
+    case 'Daha fazla':
+    $ab=6;
+    break;
+
+
+  default:
+    # code...
+    break;
+
+    #12
+}
+
+switch ($okuyan_sayi) {
+  case '0':
+    $oy=0;
+    break;
+
+    case '1':
+    $oy=1;
+    break;
+
+    case '2':
+    $oy=2;
+    break;
+
+    case '3':
+    $oy=3;
+    break;
+
+    case '4':
+    $oy=4;
+    break;
+
+  default:
+    # code...
+    break;
+
+    #10
+}
+
+switch ($uni_sayisi) {
+  case '0':
+    $uni=0;
+    break;
+
+    case '1':
+    $uni=1;
+    break;
+
+    case '2':
+    $uni_=2;
+    break;
+
+    case '3':
+    $uni=5;
+    break;
+
+  default:
+    # code...
+    break;
+
+    #8
+}
+
+
+switch ($y_maas) {
+  case 'Evet':
+    $ymaas=0;
+    break;
+
+    case 'Hayır':
+    $ymaas=7;
+    break;
+
+
+  default:
+    # code...
+    break;
+
+    #7
+}
+
+switch ($ozur_maas) {
+  case 'Evet':
+    $ozur=0;
+    break;
+
+    case 'Hayır':
+   $ozur=7;
+    break;
+
+   
+  default:
+    # code...
+    break;
+
+    #7
+}
+
+
+switch ($kurum) {
+  case 'Hayır':
+    $kur=5;
+    break;
+
+    case 'Kaymakamlık veya diğer kamu kurumu':
+    $kur=1;
+    break;
+
+    case 'Vakıf, dernek vb. yerlerden alınan yardım':
+    $kur=1;
+    break;
+
+    default:
+    # code...
+    break;
+
+    #7
+}
+
+
+switch ($calisan_kisi) {
+  case 'Çalışabilir kişi yok':
+    $calis=5;
+    break;
+
+    case 'Bir kişi':
+    $calis=2;
+    break;
+
+    case 'Birden fazla':
+    $calis=1;
+    break;
+
+  default:
+    # code...
+    break;
+
+    #9
+}
+
+$toplamOran=$calis+$kur+$ozur+$ymaas+$uni+$oy+$ab+$isin+$fd+$ed+$gel;
+
+
 #yas_guncelleme
 if(isset($_POST['kaydet']))
 {
@@ -95,6 +343,23 @@ if(isset($_POST['kaydet']))
     $yas_guncel=$db->prepare("UPDATE users SET yas = EXTRACT(year FROM CURRENT_TIMESTAMP) - EXTRACT(year FROM dg)"); 
     $yas_guncel->execute();
     
+
+    
+}
+
+
+#ihtiyac_orani
+
+if(isset($_POST['kaydet']))
+{
+      $sorular_oran=[
+        $_POST['kisi_no']=$id,
+    echo "<span color:red>"  "$_POST['oranlar']=$toplamOran" "</span>";
+      
+
+                ];
+    $sorgu_oran=$db->prepare("insert into ihtiyac_oranlari values(NULL,?,?)"); 
+    $sorgu_oran->execute($sorular_oran);
 
     
 }
@@ -184,7 +449,7 @@ if(isset($_POST['kaydet']))
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="onay.php">Başvuru Onaylama</a></li>
-            <li><a class="treeview-item" href="table-data-table.html"> Data Tables</a></li>
+            <li><a class="treeview-item" href="kayitSilme.php">Kayit Silme</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="giris.php" ><span class="app-menu__label">ÇIKIŞ</span></a>

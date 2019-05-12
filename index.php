@@ -99,7 +99,11 @@ if ( $toplamSayi->rowCount() )
             <ul class="treeview-menu">
               <li><i><a class="treeview-item" href="birey.php">Kadın</i></a></li>
               <li><i><a class="treeview-item" href="birey.php">Erkek</i></a></li>
+
+
             </ul>
+
+            <li><a class="treeview-item" href="mahalle.php">İhtiyaç Puanlarına Göre</a></li>
            
           </ul>
         </li>

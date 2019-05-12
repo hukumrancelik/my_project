@@ -562,8 +562,8 @@ $dataPoints_6 = array(
             <li><a class="treeview-item" href="birey.php"> Birey Analizleri</a></li>
             <li class="treeview"><a class="app-menu__item" href="#" ><span class="app-menu__label">Cinsiyet Analizleri</span></a>
             <ul class="treeview-menu">
-              <li><i><a class="treeview-item" href="birey_kadin.php" >Kadın</i></a></li>
-              <li><i><a class="treeview-item" href="birey_erkek.php">Erkek</i></a></li>
+              <li><i><a class="treeview-item" href="birey_kadin.php" >|Kadın|</i></a></li>
+              <li><i><a class="treeview-item" href="birey_erkek.php">|Erkek|</i></a></li>
             </ul>
           </ul>
 
@@ -573,6 +573,8 @@ $dataPoints_6 = array(
           <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="onay.php">Başvuru Onaylama</a></li>
+                        <li><a class="treeview-item" href="kayitSilme.php">Kayıt Silme</a></li>
+        </li>
         </li>
       </ul>
       <li class="treeview"><a class="app-menu__item" href="giris.php" ><span class="app-menu__label">ÇIKIŞ</span></a></li>

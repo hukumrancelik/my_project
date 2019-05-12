@@ -3,18 +3,25 @@ include("dataBase.php")
                  
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="utf-8">
   <head>
-    <title>Başvuru Onaylama</title>
+    <title>Birey Analizleri-Erkek</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="main_dene.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
+     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+     
   </head>
   <body class="app sidebar-mini rtl">
-    <header class="app-header"><a class="app-header__logo" href="index.html">Buca Belediyesi</a>
-      
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.php">Buca Belediyesi</a>
+      <!-- Sidebar toggle button-->
+    
     </header>
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
@@ -25,88 +32,87 @@ include("dataBase.php")
           <p class="app-sidebar__user-designation">Sosyal Hizmetler Yöneticisi</p>
         </div>
       </div>
-      <ul class="app-menu">
-       
-       <li><a class="app-menu__item" href="index.php">
+     <ul class="app-menu">
+        <li><a class="app-menu__item" href="index.php">
           <span class="app-menu__label">Anasayfa</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item" href="kayitlar.php" data-toggle="treeview"><span class="app-menu__label">Kayıtlar</span></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">Kayıt İşlemleri</span></a>
           
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="kayit_ekle.php"> Kayıt ekle</a></li>
-            
-              <li><a class="treeview-item" href="kayitlar.php">Kayıtlar</a></li>
+            <li><a class="treeview-item" href="kayit_ekle.php">Kayıt Ekle</a></li>
+            <li><a class="treeview-item" href="kayitlar.php"  rel="noopener">Kayıtlar</a></li>
             
           </ul>
         </li>
-
-        <li><a class="app-menu__item" href="charts.php">
-          <span class="app-menu__label">Grafikler</span></a></li>
         
-       <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
+        <li><a class="app-menu__item" href="charts.php"><span class="app-menu__label">Grafikler</span></a></li>
+        
+        <li class="treeview is-expanded"><a class="app-menu__item is-expanded" href="#" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="mahalle.php">Mahalle Analizleri</a></li>
             <li><a class="treeview-item" href="birey.php"> Birey Analizleri</a></li>
             <li class="treeview"><a class="app-menu__item" href="#" ><span class="app-menu__label">Cinsiyet Analizleri</span></a>
             <ul class="treeview-menu">
-              <li><i><a class="treeview-item" href="birey.php">|Kadın|</i></a></li>
-              <li><i><a class="treeview-item" href="birey.php">|Erkek|</i></a></li>
+              <li><i><a class="treeview-item " href="birey_kadin.php" > |Kadın|</i></a></li>
+              <li><i><a class="treeview-item" href="birey_erkek.php" data-toggle="treeview">|Erkek|</i></a></li>
             </ul>
-           
+                    <li><a class="treeview-item active" href="mahalle.php">İhtiyaç Puanlarına Göre</a></li>
           </ul>
         </li>
-
-        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
+        
+       <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="onay.php">Başvuru Onaylama</a></li>
-            <li><a class="treeview-item" href="kayitSilme.php">Kayıt Silme</a></li>
+            <li><a class="treeview-item" href="onay.php">Başvuru Onaylama</a></li>
+            
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="giris.php" ><span class="app-menu__label">ÇIKIŞ</span></a>
     </aside>
     <main class="app-content">
-        <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
       
          <div class="tile mb-4">
         <div class="page-header">
           <div class="row">
             <div class="col-lg-12">
-              <h2 class="mb-3 line-head" id="buttons">Kayıtlar</h2>
-
+              <h2 class="mb-3 line-head" id="buttons">İhtiyaç Puanlarına Göre:</h2>
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="col-lg-7">
-
-           
+            
 <?php 
+#erkek_sayisi
+$query_erkek= $db->query("SELECT COUNT(users.id)as 'erkek_sayisi'
+FROM users WHERE users.cinsiyet='Erkek' ", PDO::FETCH_ASSOC);
+if ( $query_erkek->rowCount() )
+{
+     
+
+      foreach( $query_erkek as $row_erkek ){
+      $erkek=$row_erkek['erkek_sayisi'];
+        
+}
+}
 
               
- $query = $db->query("SELECT users.username,users.username_surname,users.tc_kimlik
-FROM users,adres_bilgileri,sorular
-WHERE 
-users.id=adres_bilgileri.kisi_id
-AND
-users.id=sorular.kisi_ID", PDO::FETCH_ASSOC);
+ $query = $db->query("SELECT upper (concat (users.username,' ',users.username_surname)) as AdSoyad, concat (ihtiyac_oranlari.oranlar,' ','Puan') as oran
+FROM users,ihtiyac_oranlari
+WHERE ihtiyac_oranlari.kisi_no=users.id
+GROUP BY users.id
+ORDER BY oran DESC", PDO::FETCH_ASSOC);
 if ( $query->rowCount() )
 
   echo "<table class='table table-striped'>";
   echo " <thead class='thead-dark'>";
   echo "<tr>";
  
-  echo "<th scope='col'>AD</th>";
-  echo "<th scope='col'>SOYAD</th>";
-  echo "<th scope='col'>TC KİMLİK</th>";
-  echo "<th scope='col'>İŞLEM</th>";
-
+  echo "<th scope='col'>KİŞİLER</th>";
+  echo "<th scope='col'>PUANLAR</th>";
+  
+ 
   echo "</tr>";
   echo "</thead>";
-
-
-
-
 
 {
      
@@ -117,72 +123,67 @@ if ( $query->rowCount() )
   
     echo "<tr>";
    
-    echo "<td>",$row['username'],"</td>";
-    echo "<td>",$row['username_surname'],"</td>";
-    echo "<td>",$tc=$row['tc_kimlik'],"</td>";
+    echo "<td>",$row['AdSoyad'],"</td>";
+    echo "<td>",$row['oran'],"</td>";
     
-    echo "<td>
-
-
-
-<div class= 'custom-control custom-radio'>
- <input type='radio' id= 'onay_".$row['tc_kimlik']."' name='onay_durumu_".$row['tc_kimlik']."[]' class= 'custom-control-input' value='ONAYLANDI'> 
-  <label class='custom-control-label' for= 'onay_".$row['tc_kimlik']."' >Onayla</label><br>
-  </div>
-
-<div class= 'custom-control custom-radio'>
-  <input type='radio' id= 'bekle_".$row['tc_kimlik']."' name='onay_durumu_".$row['tc_kimlik']."[]' class= 'custom-control-input' value='BEKLİYOR'>
-  <label class='custom-control-label' for= 'bekle_".$row['tc_kimlik']."' >Beklet</label><br>
-</div>
-
-<div class= 'custom-control custom-radio'>
-  <input type='radio' id= 'olumsuz_".$row['tc_kimlik']."' name='onay_durumu_".$row['tc_kimlik']."[]' class= 'custom-control-input' value='OLUMSUZ'>
-  <label class='custom-control-label' for= 'olumsuz_".$row['tc_kimlik']."' >Olumsuz</label>
-</div>
-
-          </td>";
-
     
 
     echo "</tr>";
-    
  
      
 }
 
+
 }
 
-       
 
-if(isset($_POST['onayla']))
+
+#max
+$query_kadin= $db->query("SELECT upper (concat (users.username,' ',users.username_surname)) as AdSoyad,ihtiyac_oranlari.oranlar as oraniMax
+FROM users,ihtiyac_oranlari
+WHERE ihtiyac_oranlari.oranlar=(SELECT max(ihtiyac_oranlari.oranlar) FROM ihtiyac_oranlari)
+AND 
+users.id=ihtiyac_oranlari.kisi_no ", PDO::FETCH_ASSOC);
+if ( $query_kadin->rowCount() )
 {
-      $sorgu_gonder=[
-        
-        
-        $durum=$_POST['onay_durumu_[]']
-        
+     
 
-                ];
-    
-    
-
-  $sorgu_onay=$db->prepare("update users set onay_durumu='".$durum."' where users.tc_kimlik='".$tc."'"); 
-  $sorgu_onay->execute($sorgu_gonder);
-    
+      foreach( $query_kadin as $row_kadin ){
+      $maxKisi=$row_kadin['AdSoyad'];
+      $oraniMax=$row_kadin['oraniMax'];
+        
+}
 }
 
 
 
+$query_kadin= $db->query("SELECT upper (concat (users.username,' ',users.username_surname)) as AdSoyad,ihtiyac_oranlari.oranlar as oraniMin
+FROM users,ihtiyac_oranlari
+WHERE ihtiyac_oranlari.oranlar=(SELECT min(ihtiyac_oranlari.oranlar) FROM ihtiyac_oranlari)
+AND 
+users.id=ihtiyac_oranlari.kisi_no ", PDO::FETCH_ASSOC);
+if ( $query_kadin->rowCount() )
+{
+     
 
-          
+      foreach( $query_kadin as $row_kadin ){
+      $minKisi=$row_kadin['AdSoyad'];
+      $oraniMin=$row_kadin['oraniMin'];
+
+        
+}
+}
+
+
+echo "<span style= 'color:green'>","<h3>"."En Fazla Ihtiyaç Sahibi Kisi:"." ".$maxKisi." PUANI=".$oraniMax."</h3>","</span>";
+echo "<span style= 'color:red'>","<h3>"."En Az Ihtiyaç Sahibi Kisi:"." ".$minKisi." ","PUANI=".$oraniMin."</h3> ","</span>";
+
+
  ?>
-<button type='submit' class='btn btn-primary btn-lg btn-block' name='onayla'>Değişlikleri Kaydet</button>
 
+              
 
-           </div>    
-
-
-
+            </div>
 
 <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -227,7 +228,7 @@ if(isset($_POST['onayla']))
 
 
              
-    </form>
+    
   </body>
 
 </html>
