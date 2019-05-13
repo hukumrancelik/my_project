@@ -56,7 +56,7 @@ include("dataBase.php")
               <li><i><a class="treeview-item " href="birey_kadin.php" > |Kadın|</i></a></li>
               <li><i><a class="treeview-item active" href="birey_erkek.php" data-toggle="treeview">|Erkek|</i></a></li>
             </ul>
-           
+                   <li><a class="treeview-item" href="puan.php">İhtiyaç Puanlarına Göre</a></li>
           </ul>
         </li>
         

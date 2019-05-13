@@ -516,16 +516,7 @@ $dataPoints_6 = array(
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.php">Buca Belediyesi</a>
-      <!-- Sidebar toggle button-->
-      
-      <!-- Navbar Right Menu-->
-      <ul class="app-nav">
-        
-        <!--Notification Menu-->
-        
-          
-        <!-- User Menu-->
-        
+     
     </header>
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
@@ -565,6 +556,7 @@ $dataPoints_6 = array(
               <li><i><a class="treeview-item" href="birey_kadin.php" >|Kadın|</i></a></li>
               <li><i><a class="treeview-item" href="birey_erkek.php">|Erkek|</i></a></li>
             </ul>
+                 <li><a class="treeview-item" href="puan.php">İhtiyaç Puanlarına Göre</a></li>
           </ul>
 
         </li>

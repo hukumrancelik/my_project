@@ -32,6 +32,52 @@ if ( $toplamSayi->rowCount() )
 }
 }
 
+
+
+#olumlu_sayisi
+$olumlu_sayisi= $db->query("SELECT COUNT(users.id) as olumluSayi
+FROM users
+WHERE users.onay_durumu= 'ONAYLANDI' ", PDO::FETCH_ASSOC);
+if ( $olumlu_sayisi->rowCount() )
+{
+     
+
+      foreach( $olumlu_sayisi as $olumlu ){
+      $olumluSayi=$olumlu['olumluSayi'];
+        
+}
+}
+
+#bekliyor
+$bekle_sayisi= $db->query("SELECT COUNT(users.id) as bekleSayi
+FROM users
+WHERE users.onay_durumu= 'BEKLİYOR' ", PDO::FETCH_ASSOC);
+if ( $bekle_sayisi->rowCount() )
+{
+     
+
+      foreach( $bekle_sayisi as $bekle ){
+      $bekleSayi=$bekle['bekleSayi'];
+        
+}
+}
+
+
+#olumsuz
+$olumsuz_sayisi= $db->query("SELECT COUNT(users.id) as olumsuzSayi
+FROM users
+WHERE users.onay_durumu= 'OLUMSUZ' ", PDO::FETCH_ASSOC);
+if ( $olumsuz_sayisi->rowCount() )
+{
+     
+
+      foreach( $olumsuz_sayisi as $olumsuz ){
+      $olumsuzSayi=$olumsuz['olumsuzSayi'];
+        
+}
+}
+
+
 ?>
 
 
@@ -133,7 +179,10 @@ if ( $toplamSayi->rowCount() )
           <div class="widget-small info coloured-icon">
             <div class="info">
              <span style="color:green"><h4><b>ONAYLANAN</b></h4></span>
-              <p><b><h1><span style="color:green">15</h1></b></p></span>
+              <?php  
+                echo "<p>","<b>","<h1>","<span style='color:green'>",$olumluSayi,"</h1>","</b>","</p>";
+
+              ?>
             </div>
           </div>
         </div>
@@ -141,7 +190,10 @@ if ( $toplamSayi->rowCount() )
           <div class="widget-small warning coloured-icon">
             <div class="info">
               <span style="color:orange"><h4><b>ONAY BEKLEYEN</b></h4></span>
-              <p><b><h1> <span style="color:orange">10</h1></b></p></span>
+              <?php  
+                echo "<p>","<b>","<h1>","<span style='color:orange'>",$bekleSayi,"</h1>","</b>","</p>";
+
+              ?>
             </div>
           </div>
         </div>
@@ -149,7 +201,10 @@ if ( $toplamSayi->rowCount() )
           <div class="widget-small danger coloured-icon">
             <div class="info">
               <span style="color:red"><h4><b>OLUMSUZ</b></h4></span>
-              <p><b><h1><span style="color:red">4</h1></b></p></span>
+               <?php  
+                echo "<p>","<b>","<h1>","<span style='color:red'>",$olumsuzSayi,"</h1>","</b>","</p>";
+
+              ?>
             </div>
           </div>
         </div>

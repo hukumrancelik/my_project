@@ -52,10 +52,10 @@ include("dataBase.php")
             <li><a class="treeview-item" href="birey.php"> Birey Analizleri</a></li>
             <li class="treeview"><a class="app-menu__item" href="#" ><span class="app-menu__label">Cinsiyet Analizleri</span></a>
             <ul class="treeview-menu">
-              <li><i><a class="treeview-item" href="birey_kadin.php" data-toggle="treeview">|Kadın|</i></a></li>
+              <li><i><a class="treeview-item" href="birey_kadin.php" data-toggle="treeview item">|Kadın|</i></a></li>
               <li><i><a class="treeview-item" href="birey_erkek.php">|Erkek|</i></a></li>
             </ul>
-           
+                     <li><a class="treeview-item" href="puan.php">İhtiyaç Puanlarına Göre</a></li>
           </ul>
         </li>
         

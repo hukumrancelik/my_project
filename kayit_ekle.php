@@ -89,8 +89,8 @@ if(isset($_POST['kaydet']))
 }
 
 switch ($gelir) {
-  case 'Net asgari ücretin %50’sine kadar olanlar':
-    $gel=8;
+  case 'Net asgari ücretin %50’sine kadar geliri olanlar':
+    $gel=9;
     break;
 
     case 'Net asgari ücretin %50’sinden fazla olup,%100’üne kadar olanlar':
@@ -118,7 +118,7 @@ switch ($evin_durumu) {
     break;
 
     case 'Kirada':
-    $ed=8;
+    $ed=9;
     break;
 
     case 'Kirası karşılanıyor':
@@ -138,7 +138,7 @@ switch ($fiziki_durum) {
     break;
 
     case 'Kötü':
-    $fd=6;
+    $fd=9;
     break;
 
     case 'Normal':
@@ -155,7 +155,7 @@ switch ($fiziki_durum) {
 
 switch ($isinma_durumu) {
   case 'Soba':
-    $isin=5;
+    $isin=9;
     break;
 
     case 'Kolarifer':
@@ -176,24 +176,21 @@ switch ($isinma_durumu) {
 
 
 switch ($aile_birey) {
-  case '1':
-    $ab=0;
-    break;
-
-    case '2':
+  
+    case '1':
     $ab=1;
     break;
 
-    case '3':
+    case '2':
     $ab=2;
     break;
 
-    case '4':
-    $ab=3;
+    case '3':
+    $ab=4;
     break;
 
     case 'Daha fazla':
-    $ab=6;
+    $ab=9;
     break;
 
 
@@ -222,7 +219,7 @@ switch ($okuyan_sayi) {
     break;
 
     case '4':
-    $oy=4;
+    $oy=9;
     break;
 
   default:
@@ -246,7 +243,7 @@ switch ($uni_sayisi) {
     break;
 
     case '3':
-    $uni=5;
+    $uni=9;
     break;
 
   default:
@@ -263,7 +260,7 @@ switch ($y_maas) {
     break;
 
     case 'Hayır':
-    $ymaas=7;
+    $ymaas=9;
     break;
 
 
@@ -280,7 +277,7 @@ switch ($ozur_maas) {
     break;
 
     case 'Hayır':
-   $ozur=7;
+   $ozur=9;
     break;
 
    
@@ -294,7 +291,7 @@ switch ($ozur_maas) {
 
 switch ($kurum) {
   case 'Hayır':
-    $kur=5;
+    $kur=9;
     break;
 
     case 'Kaymakamlık veya diğer kamu kurumu':
@@ -315,7 +312,7 @@ switch ($kurum) {
 
 switch ($calisan_kisi) {
   case 'Çalışabilir kişi yok':
-    $calis=5;
+    $calis=10;
     break;
 
     case 'Bir kişi':
@@ -354,7 +351,7 @@ if(isset($_POST['kaydet']))
 {
       $sorular_oran=[
         $_POST['kisi_no']=$id,
-    echo "<span color:red>"  "$_POST['oranlar']=$toplamOran" "</span>";
+        $_POST['oranlar']=$toplamOran
       
 
                 ];
@@ -443,6 +440,7 @@ if(isset($_POST['kaydet']))
               <li><i><a class="treeview-item" href="birey_kadin.php" >Kadın</i></a></li>
               <li><i><a class="treeview-item" href="birey_erkek.php">Erkek</i></a></li>
             </ul>
+            <li><a class="treeview-item active" href="puan.php">İhtiyaç Puanlarına Göre</a></li>
           </ul>
             
         </li>

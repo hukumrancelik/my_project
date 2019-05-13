@@ -125,11 +125,9 @@ if ( $query->rowCount() ){
                  
 
 
-    
-}
 
 
-  if(isset($_POST['sil']))
+                   if(isset($_POST['sil']))
 {
       $formliste=[
         
@@ -144,6 +142,12 @@ if ( $query->rowCount() ){
     }
 
 
+
+    
+}
+
+
+ 
 
  ?>
 
