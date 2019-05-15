@@ -335,8 +335,8 @@ if ( $durumKotu->rowCount() )
 
 $dataPoints_4= array( 
   array("label"=>"İyi", "symbol" => "İyi","y"=>$d1),
-  array("label"=>"Kötü", "symbol" => "Normal","y"=>$d2),
-  array("label"=>"Normal", "symbol" => "Kötü","y"=>$d3)
+  array("label"=>"Kötü", "symbol" => "Kötü","y"=>$d3),
+  array("label"=>"Normal", "symbol" => "Normal","y"=>$d2)
   
 )
  
@@ -498,6 +498,77 @@ $dataPoints_6 = array(
 );
  
 ?>
+
+
+
+<!-- onay durumu--->
+
+
+<?php
+ 
+
+
+#olumlu_sayisi
+$olumlu_sayisi= $db->query("SELECT COUNT(users.id) as olumluSayi
+FROM users
+WHERE users.onay_durumu= 'ONAYLANDI' ", PDO::FETCH_ASSOC);
+if ( $olumlu_sayisi->rowCount() )
+{
+     
+
+      foreach( $olumlu_sayisi as $olumlu ){
+      $olumluSayi=$olumlu['olumluSayi'];
+        
+}
+}
+
+#bekliyor
+$bekle_sayisi= $db->query("SELECT COUNT(users.id) as bekleSayi
+FROM users
+WHERE users.onay_durumu= 'BEKLİYOR' ", PDO::FETCH_ASSOC);
+if ( $bekle_sayisi->rowCount() )
+{
+     
+
+      foreach( $bekle_sayisi as $bekle ){
+      $bekleSayi=$bekle['bekleSayi'];
+        
+}
+}
+
+
+#olumsuz
+$olumsuz_sayisi= $db->query("SELECT COUNT(users.id) as olumsuzSayi
+FROM users
+WHERE users.onay_durumu= 'OLUMSUZ' ", PDO::FETCH_ASSOC);
+if ( $olumsuz_sayisi->rowCount() )
+{
+     
+
+      foreach( $olumsuz_sayisi as $olumsuz ){
+      $olumsuzSayi=$olumsuz['olumsuzSayi'];
+        
+}
+}
+
+
+
+
+
+
+$dataPoints_7 = array( 
+  array("y" =>  $olumluSayi, "label" => "Onaylanan" ),
+  array("y" =>  $bekleSayi, "label" => "Bekleyen" ),
+  array("y" =>  $olumsuzSayi, "label" => "Olumsuz" ),
+  
+  
+);
+ 
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="utf-8">
   <head>
@@ -621,6 +692,15 @@ $dataPoints_6 = array(
           <div class="tile">
             <h3 class="tile-title"></h3>
             <div id="chartContainer_5" style="height: 370px; width: 100%;">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title"></h3>
+            <div id="chartContainer_7" style="height: 370px; width: 100%;">
             </div>
           </div>
         </div>
@@ -771,8 +851,28 @@ var chart_6= new CanvasJS.Chart("chartContainer_6", {
 chart_6.render();
  
 
+var chart_7 = new CanvasJS.Chart("chartContainer_7", {
+  animationEnabled: true,
+  theme: "light3",
+  title:{
+    text: "Onay Durumları"
+  },
+  axisY: {
+    title: "Başvuru Sayısı"
+  },
+  data: [{
+    type: "column",
+    yValueFormatString: "#,##0.## kişi",
+    dataPoints: <?php echo json_encode($dataPoints_7, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart_7.render();
+
+
 </script>
 
 
   </body>
 </html>
+
+

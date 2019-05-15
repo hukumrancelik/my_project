@@ -154,7 +154,7 @@ if ( $query->rowCount() )
       $sorgu_gonder=[
         
         
-        $durum=$_POST[$row['tc_kimlik']]
+         @$durum=$_POST[ $row['tc_kimlik']]
         
 
                 ];

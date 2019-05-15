@@ -97,6 +97,7 @@ include("dataBase.php")
           <div class="row">
             <div class="col-lg-12">
               <h2 class="mb-3 line-head" id="buttons">Kayıtlar</h2>
+              <p>İhtiyaç Puanları 100 üzerinden hesaplanmaktadır. </p>
             </div>
           </div>
         </div>
@@ -150,8 +151,36 @@ if ( $query->rowCount() )
     echo "<td>",$row['user_tel'],"</td>";
     echo "<td>",$row['mahalle'],"</td>";
        echo "<td>",$row['kayit_tarihi'],"</td>";
-       echo "<td>",$row['oran'],"</td>";
-         echo "<td>",$row['onay_durumu'],"</td>";
+       
+         if($row['oran']>50){
+
+           echo "<td>","<span style= 'color:green'>",$row['oran'],"</td>";
+
+      }
+      else {
+
+                 echo "<td>","<span style= 'color:red'>","<b>",$row['oran'],"</b>","</td>";
+
+      }
+         
+
+          switch ($row['onay_durumu']) {
+            case 'ONAYLANDI':
+              echo "<td>","<span style= 'color:green'>","<b>",$row['onay_durumu'],"</b>","</td>";
+              break;
+
+               case "BEKLİYOR":
+                 echo "<td>","<span style= 'color:orange'>","<b>",$row['onay_durumu'],"</b>","</td>";
+                 break;
+
+                  case "OLUMSUZ":
+
+                        echo "<td>","<span style= 'color:red'>","<b>",$row['onay_durumu'],"</b>","</td>";
+                        break;
+            
+            
+          }
+        
     
 
     echo "</tr>";
