@@ -1,5 +1,5 @@
 # Hükümran Çelik
 
-![vali-admin](https://i.hizliresim.com/odPMrq.png)
+![vali-admin]([url=https://hizliresim.com/odPMrq][img]https://i.hizliresim.com/odPMrq.png[/img][/url])
 
 
