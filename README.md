@@ -1,5 +1,5 @@
 # Hükümran Çelik
 
-![vali-admin](https://resmim.net/f/usTDqA.png)
+![vali-admin](https://ibb.co/4sfFM35)
 
 
