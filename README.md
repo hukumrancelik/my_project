@@ -1,5 +1,5 @@
 # Hükümran Çelik
 
-![vali-admin]("https://ibb.co/4sfFM35")
+![vali-admin]("http://pratikborsadiya.in/blog/vali-admin/vali-admin-banner.gif")
 
 
