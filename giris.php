@@ -12,11 +12,6 @@
 	<link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
 
 	
-
-
-
-
-
 </head>
 <body>
 	
@@ -26,7 +21,7 @@
 
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="bbbg-01.jpg" alt="IMG">
+					<img src="img/bbbg-01.jpg" alt="IMG">
 				</div>
 				<form action="kontrol.php" method="POST">
 				<form class="login100-form validate-form">

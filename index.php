@@ -124,10 +124,12 @@ if ( $olumsuz_sayisi->rowCount() )
           <p class="app-sidebar__user-designation">Sosyal Hizmetler Yöneticisi</p>
         </div>
       </div>
+      
       <ul class="app-menu">
+        
         <li><a class="app-menu__item active" href="index.php"><span class="app-menu__label">Anasayfa</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"></i>
-
+        
+        <li class="treeview"><a class="app-menu__item" href="kayitlar.php" data-toggle="treeview"></i>
           <span class="app-menu__label">Kayıt İşlemleri</span></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="kayit_ekle.php"> Kayıt Ekle</a></li>
@@ -137,7 +139,7 @@ if ( $olumsuz_sayisi->rowCount() )
 
         <li><a class="app-menu__item" href="charts.php"><span class="app-menu__label">Grafikler</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
+        <li class="treeview"><a class="app-menu__item" href="mahalle.php" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="mahalle.php">Mahalle Analizleri</a></li>
             <li><a class="treeview-item" href="birey.php"> Birey Analizleri</a></li>
@@ -265,35 +267,6 @@ Buca Belediye Meclis Toplantısı, 02.05.2019 Perşembe günü, Buca Belediye Sa
     </script>
   </div>
   <script>
-
-    var _gaq=[['_setAccount','UA-11278966-1'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
-        </div>
-
-              </div>
-
-
-    </main>
-    
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-72504830-1', 'auto');
-        ga('send', 'pageview');
-      }
     </script>
   
     

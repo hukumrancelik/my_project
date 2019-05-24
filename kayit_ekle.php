@@ -394,20 +394,11 @@ if(isset($_POST['kaydet']))
   </head>
   
   <body class="app sidebar-mini rtl">
-    <!-- Navbar-->
+   
     <header class="app-header"><a class="app-header__logo" href="index.php">Buca Belediyesi</a>
-      <!-- Sidebar toggle button-->
-      
-      <!-- Navbar Right Menu-->
-      <ul class="app-nav">
-        
-        <!--Notification Menu-->
-        
-          
-        <!-- User Menu-->
-        
+
     </header>
-    <!-- Sidebar menu-->
+
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <div class="app-sidebar__user">
@@ -459,9 +450,25 @@ if(isset($_POST['kaydet']))
         <div class="col-md-6">
           <div class="tile">
             <h3 class="tile-title">Kişisel Bilgiler</h3>
+            <?php 
+
+              if(isset($sorgu_sorular))
+              {
+
+                  echo "  <div class= 'alert alert-success' role= 'alert'><a class='alert-link'> Kaydınız basarıyla alındı</a>
+
+            </div>";
+
+
+              }
+             ?>
+
+             
+          
             <div class="tile-body">
               <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">      
                 <div class="form-group">
+
                   <label class="control-label"><b>Ad</b></label>
                      <input class="form-control" type="text" placeholder="Ad" name="username"><br>
                   <label class="control-label"> <b>Soyad</b></label>

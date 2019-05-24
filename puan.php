@@ -80,6 +80,24 @@ include("dataBase.php")
         </div>
         <div class="row">
           <div class="col-lg-7">
+
+<?php 
+
+#2019
+$oranlarYil= $db->query("SELECT round(AVG(ihtiyac_oranlari.oranlar),1) as ortalama2019
+FROM ihtiyac_oranlari ", PDO::FETCH_ASSOC);
+if ( $oranlarYil->rowCount() )
+{
+     
+
+      foreach( $oranlarYil as $yil ){
+      
+      $yil2019=$yil['ortalama2019'];
+        
+}
+}
+
+ ?>
             
 <?php 
 #erkek_sayisi
@@ -177,6 +195,7 @@ if ( $query_kadin->rowCount() )
 
 echo "<span style= 'color:green'>","<h3>"."En Fazla Ihtiyaç Sahibi Kisi:"." ".$maxKisi." PUANI=".$oraniMax."</h3>","</span>";
 echo "<span style= 'color:red'>","<h3>"."En Az Ihtiyaç Sahibi Kisi:"." ".$minKisi." ","PUANI=".$oraniMin."</h3> ","</span>";
+echo "<span style= 'color:blue'>","<h3>"."2019 ORTALAMA İHTİYAÇ PUANI:"." ".$yil2019." </h3> ","</span>";
 
 
  ?>
@@ -185,49 +204,7 @@ echo "<span style= 'color:red'>","<h3>"."En Az Ihtiyaç Sahibi Kisi:"." ".$minKi
 
             </div>
 
-<!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/jquery.vmap.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.vmap.world.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.vmap.sampledata.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-      
-        var map = $('#demo-map');
-        map.vectorMap({
-          map: 'world_en',
-          backgroundColor: '#fff',
-          color: '#333',
-          hoverOpacity: 0.7,
-          selectedColor: '#666666',
-          enableZoom: true,
-          showTooltip: true,
-          scaleColors: ['#C8EEFF', '#006491'],
-          values: sample_data,
-          normalizeFunction: 'polynomial'
-        });
-      });
-    </script>
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-72504830-1', 'auto');
-        ga('send', 'pageview');
-      }
-    </script>
 
-
-             
     
   </body>
 

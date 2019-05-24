@@ -108,9 +108,6 @@ include("dataBase.php")
 FROM users", PDO::FETCH_ASSOC);
 if ( $query->rowCount() ){
 
-
-
-
    echo  "<div class='form-group'>";
     echo "<select name='silKayit' class= 'form-control' id= 'exampleFormControlSelect1'>";
     echo "</div>";

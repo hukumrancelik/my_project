@@ -86,8 +86,12 @@ include("dataBase.php")
 <?php 
 
               
- $query = $db->query("SELECT adres_bilgileri.mahalle, COUNT(adres_bilgileri.adres_id) as basvuruSayisi
-FROM adres_bilgileri
+ $query = $db->query("SELECT adres_bilgileri.mahalle as mahalle,COUNT(adres_bilgileri.kisi_id)as basvuruSayisi,round(AVG(ihtiyac_oranlari.oranlar),1) as ortalama
+FROM ihtiyac_oranlari,adres_bilgileri,users
+WHERE
+adres_bilgileri.kisi_id=users.id
+AND
+ihtiyac_oranlari.kisi_no=users.id
 GROUP BY adres_bilgileri.mahalle
 ORDER BY basvuruSayisi DESC", PDO::FETCH_ASSOC);
 if ( $query->rowCount() )
@@ -98,6 +102,7 @@ if ( $query->rowCount() )
  
   echo "<th scope='col'>MAHALLE</th>";
   echo "<th scope='col'>BAŞVURU SAYISI</th>";
+  echo "<th scope='col'>ORTALAMA PUAN</th>";
  
   echo "</tr>";
   echo "</thead>";
@@ -113,6 +118,17 @@ if ( $query->rowCount() )
    
     echo "<td>",$row['mahalle'],"</td>";
     echo "<td>",$row['basvuruSayisi'],"</td>";
+    
+         if($row['ortalama']>=50){
+
+           echo "<td>","<span style= 'color:green'>",$row['ortalama'],"</td>";
+
+      }
+      else {
+
+                 echo "<td>","<span style= 'color:red'>","<b>",$row['ortalama'],"</b>","</td>";
+
+      }
     
 
     echo "</tr>";

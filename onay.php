@@ -84,7 +84,7 @@ include("dataBase.php")
           <?php 
 
               
- $query = $db->query("SELECT users.username,users.username_surname,users.tc_kimlik
+ $query = $db->query("SELECT upper(users.username) as username,upper(users.username_surname)username_surname,users.tc_kimlik
 FROM users,adres_bilgileri,sorular
 WHERE 
 users.id=adres_bilgileri.kisi_id

@@ -1,0 +1,256 @@
+
+
+
+[{
+    "name": "ADATEPE MAHALLESİ",
+    "id": "US.AL",
+    "value": 20
+}, 
+
+{
+    "name": "ATATÜRK MAHALLESİ",
+    "id": "US.AZ",
+    "value": 0
+}, {
+    "name": "AYDOĞDU MAHALLESİ",
+    "id": "US.AR",
+    "value": 0
+}, {
+    "name": "BARIŞ MAHALLESİ",
+    "id": "US.CA",
+    "value": 3,
+    "restaurants": [{
+        "name": "ACME Castro",
+        "website": "http://www.google.ru/search?q=ACME+Castro",
+        "address": "29, Main Avenue, San Franciso, USA"
+    }, {
+        "name": "ACME Fisherman's Wharf",
+        "website": "http://www.google.ru/search?q=ACME+Fisherman%27s+Wharf",
+        "address": "143, Central Road, San Franciso, USA"
+    }, {
+        "name": "ACME Marina",
+        "website": "http://www.google.ru/search?q=ACME+Marina",
+        "address": "3/45, Central Road, San Franciso, USA"
+    }]
+}, {
+    "name": "BELENBAŞI MAHALLESİ",
+    "id": "US.CO",
+    "value": 0
+}, {
+    "name": "CUMHURİYET MAHALLESİ",
+    "id": "US.CT",
+    "value": 0
+}, {
+    "name": "ÇAĞDAŞ MAHALLESİ",
+    "id": "US.DE",
+    "value": 0
+}, {
+    "name": "ÇAMLIK MAHALLESİ",
+    "id": "US.FL",
+    "value": 1,
+    "restaurants": [{
+        "name": "Florida ACME Restaurant",
+        "website": "http://www.google.ru/search?q=ACME+Florida",
+        "address": "3685, Central Road, Miami, USA"
+    }]
+}, {
+    "name": "ÇAMLIKULE MAHALLESİ",
+    "id": "US.GA",
+    "value": 1,
+    "restaurants": [{
+        "name": "Georgia ACME Restaurant",
+        "website": "http://www.google.ru/search?q=ACME+Georgia",
+        "address": "85/578, Main Avenue, Atlanta, USA"
+    }]
+}, 
+
+{
+    "name": "ÇAMLIPINAR MAHALLESİ",
+    "id": "US.ID",
+    "value": 0
+}, {
+    "name": "DİCLE MAHALLESİ",
+    "id": "US.IL",
+    "value": 1,
+    "restaurants": [{
+        "name": "Illinois ACME Restaurant",
+        "website": "http://www.google.ru/search?q=ACME+Illinois",
+        "address": "2/6, Central Road, Chicago, USA"
+    }]
+}, {
+    "name": "DOĞANCILAR MAHALLESİ",
+    "id": "US.IN",
+    "value": 0
+}, {
+    "name": "DUMLUPINAR MAHALLESİ",
+    "id": "US.IA",
+    "value": 0
+}, {
+    "name": "EFELER MAHALLESİ",
+    "id": "US.KS",
+    "value": 0
+}, {
+    "name": "FIRAT MAHALLESİ",
+    "id": "US.KY",
+    "value": 0
+}, {
+    "name": "GAZİLER MAHALLESİ",
+    "id": "US.LA",
+    "value": 0
+}, {
+    "name": "GÖKSU MAHALLESİ",
+    "id": "US.ME",
+    "value": 0
+}, {
+    "name": "GÜVEN MAHALLESİ",
+    "id": "US.MD",
+    "value": 0
+}, {
+    "name": "HÜRRİYET MAHALLESİ",
+    "id": "US.MA",
+    "value": 0
+}, {
+    "name": "İNKILAP MAHALLESİ",
+    "id": "US.MI",
+    "value": 0
+}, {
+    "name": "İNÖNÜ MAHALLESİ",
+    "id": "US.MN",
+    "value": 0
+}, {
+    "name": "İZKENT MAHALLESİ",
+    "id": "US.MS",
+    "value": 0
+}, {
+    "name": "KARACAAĞAÇ MAHALLESİ",
+    "id": "US.MO",
+    "value": 0
+}, {
+    "name": "MUSTAFA KEMAL MAHALLESİ",
+    "id": "US.MT",
+    "value": 0
+}, {
+    "name": "Nebraska",
+    "id": "US.NE",
+    "value": 0
+}, {
+    "name": "KOZAĞAÇ MAHALLESİ",
+    "id": "US.NV",
+    "value": 0
+}, {
+    "name": "New Hampshire",
+    "id": "US.NH",
+    "value": 0
+}, {
+    "name": "New Jersey",
+    "id": "US.NJ",
+    "value": 0
+}, {
+    "name": "AKINCILAR MAHALLESİ",
+    "id": "US.NM",
+    "value": 0
+}, {
+    "name": "LALELİ MAHALLESİ",
+    "id": "US.NY",
+    "value": 3,
+    "restaurants": [{
+        "name": "ACME Queens",
+        "website": "http://www.google.ru/search?q=ACME+Queens",
+        "address": "3/45, Queens, New York City, USA"
+    }, {
+        "name": "ACME Upper East Side",
+        "website": "http://www.google.ru/search?q=ACME+Upper+East+Side",
+        "address": "23/8977, Upper East Side, New York City, USA"
+    }, {
+        "name": "ACME Bronx",
+        "website": "http://www.google.ru/search?q=ACME+Bronx",
+        "address": "45/890, Bronx, New York City, USA"
+    }]
+}, {
+    "name": "ŞİRİNKAPI MAHALLESİ",
+    "id": "US.NC",
+    "value": 0
+}, {
+    "name": "North Dakota",
+    "id": "US.ND",
+    "value": 0
+}, {
+    "name": "Ohio",
+    "id": "US.OH",
+    "value": 1,
+    "restaurants": [{
+        "name": "Ohio ACME Restaurant",
+        "website": "http://www.google.ru/search?q=ACME+Ohio",
+        "address": "36/85, Central Road, Cleveland, USA"
+    }]
+}, {
+    "name": "MURATHAN MAHALLESİ",
+    "id": "US.OK",
+    "value": 0
+}, {
+    "name": "KIRIKLAR MAHALLESİ",
+    "id": "US.OR",
+    "value": 0
+}, {
+    "name": "Pennsylvania",
+    "id": "US.PA",
+    "value": 1,
+    "restaurants": [{
+        "name": "Pennsylvania ACME Restaurant",
+        "website": "http://www.google.ru/search?q=ACME+Pennsylvania",
+        "address": "3/685, Main Avenue, Philadelphia, USA"
+    }]
+}, {
+    "name": "Rhode Island",
+    "id": "US.RI",
+    "value": 0
+}, {
+    "name": "South Carolina",
+    "id": "US.SC",
+    "value": 0
+}, {
+    "name": "UFUK MAHALLESİ",
+    "id": "US.SD",
+    "value": 0
+}, {
+    "name": "Tennessee",
+    "id": "US.TN",
+    "value": 0
+}, {
+    "name": "MENDERES MAHALLESİ",
+    "id": "US.TX",
+    "value": 1,
+    "restaurants": [{
+        "name": "Texas ACME Restaurant",
+        "website": "http://www.google.ru/search?q=ACME+Texas",
+        "address": "368/5, Main Avenue, Houston, USA"
+    }]
+}, {
+    "name": "KURUÇEŞME MAHALLESİ",
+    "id": "US.UT",
+    "value": 0
+}, {
+    "name": "Vermont",
+    "id": "US.VT",
+    "value": 0
+}, {
+    "name": "Virginia",
+    "id": "US.VA",
+    "value": 0
+}, {
+    "name": "KARANFİL MAHALLESİ",
+    "id": "US.WA",
+    "value": 0
+}, {
+    "name": "West Virginia",
+    "id": "US.WV",
+    "value": 0
+}, {
+    "name": "Wisconsin",
+    "id": "US.WI",
+    "value": 0
+}, {
+    "name": "SEYHAN MAHALLESİ",
+    "id": "US.WY",
+    "value": 0
+}]
