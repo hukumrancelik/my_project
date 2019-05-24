@@ -1,6 +1,6 @@
 # Hükümran Çelik
 
-![vali-admin](http://pratikborsadiya.in/blog/vali-admin/vali-admin-banner.gif)
+![vali-admin](https://i.hizliresim.com/odPMrq.png)
 
 [![npm version](https://badge.fury.io/js/vali-admin.svg)](https://badge.fury.io/js/vali-admin)
 
