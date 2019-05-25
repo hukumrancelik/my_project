@@ -90,7 +90,7 @@ if ( $olumsuz_sayisi->rowCount() )
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CSS Dosyalarım-->
-    <link rel="stylesheet" type="text/css" href="main_dene.css">
+    <link rel="stylesheet" type="text/css" href="/css/main_dene.css">
 
     <!--Metin CSS'leri-->
     
