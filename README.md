@@ -21,4 +21,21 @@ Bu karar destek bir Sosyal Yardımlaşma Müdürüne hangi ailelere sosyal yard�
 
 Web tabanlı bir karar destek sistemi oluşturacağı için bir web ara yüzü tasarlanacağı için , tasarım aşamasında HTML ve CSS dilleri kullanıldı. Web sitesine dinamiklik katmak yoluyla belli yerlerde JS kütüphanesi olan JQUERY kullanıldı. Verilerin veri tabanı ile web ara yüzü ile aradaki bağlantıyı sağlamak adına PHP dili kullanıldı. Ayrıca veri görsellemede CANVAS kütüphanesi ile dağınık halde bulunan veriler , grafikler ile işlevsel hale getirildi.
 
+# Anasayfa
+![1](https://user-images.githubusercontent.com/36935662/58375439-b95ad500-7f5b-11e9-8a06-b24f3bb192ad.PNG)
+
+# Kayıt Sayfası
+![kayitlar](https://user-images.githubusercontent.com/36935662/58375442-ce376880-7f5b-11e9-9159-43759988628f.PNG)
+
+# Kayıt Ekleme Sayfası
+![kayit_ekle](https://user-images.githubusercontent.com/36935662/58375446-f4f59f00-7f5b-11e9-972b-bf686e584c11.PNG)
+
+# Puan Analizleri
+![puan](https://user-images.githubusercontent.com/36935662/58375449-076fd880-7f5c-11e9-9ae3-efe7bebf392b.PNG)
+
+# Grafikler
+![grafikler](https://user-images.githubusercontent.com/36935662/58375457-1b1b3f00-7f5c-11e9-96ee-22b36bd2e06c.PNG)
+
+
+
  
