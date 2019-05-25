@@ -129,40 +129,40 @@ if ( $olumsuz_sayisi->rowCount() )
         
         <li><a class="app-menu__item active" href="index.php"><span class="app-menu__label">Anasayfa</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item" href="kayitlar.php" data-toggle="treeview"></i>
+        <li class="treeview"><a class="app-menu__item" href="sayfalar/kayitlar.php" data-toggle="treeview"></i>
           <span class="app-menu__label">Kayıt İşlemleri</span></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="kayit_ekle.php"> Kayıt Ekle</a></li>
-            <li><a class="treeview-item" href="kayitlar.php"  rel="noopener">Kayıtlar</a></li>
+            <li><a class="treeview-item" href="sayfalar/kayit_ekle.php">Kayıt Ekle</a></li>
+            <li><a class="treeview-item" href="sayfalar/kayitlar.php"  rel="noopener">Kayıtlar</a></li>
           </ul>
         </li>
 
-        <li><a class="app-menu__item" href="charts.php"><span class="app-menu__label">Grafikler</span></a></li>
+        <li><a class="app-menu__item" href="sayfalar/charts.php"><span class="app-menu__label">Grafikler</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item" href="mahalle.php" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
+        <li class="treeview"><a class="app-menu__item" href="sayfalar/mahalle.php" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="mahalle.php">Mahalle Analizleri</a></li>
-            <li><a class="treeview-item" href="birey.php"> Birey Analizleri</a></li>
+            <li><a class="treeview-item" href="sayfalar/mahalle.php">Mahalle Analizleri</a></li>
+            <li><a class="treeview-item" href="sayfalar/birey.php"> Birey Analizleri</a></li>
             <li class="treeview"><a class="app-menu__item" href="#" ><span class="app-menu__label">Cinsiyet Analizleri</span></a>
             <ul class="treeview-menu">
-              <li><i><a class="treeview-item" href="birey.php">Kadın</i></a></li>
-              <li><i><a class="treeview-item" href="birey.php">Erkek</i></a></li>
+              <li><i><a class="treeview-item" href="sayfalar/birey.php">Kadın</i></a></li>
+              <li><i><a class="treeview-item" href="sayfalar/birey.php">Erkek</i></a></li>
 
 
             </ul>
 
-            <li><a class="treeview-item" href="mahalle.php">İhtiyaç Puanlarına Göre</a></li>
+            <li><a class="treeview-item" href="sayfalar/mahalle.php">İhtiyaç Puanlarına Göre</a></li>
            
           </ul>
         </li>
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="onay.php">Başvuru Onaylama</a></li>
-            <li><a class="treeview-item" href="kayitSilme.php">Kayıt Silme</a></li>
+            <li><a class="treeview-item" href="sayfalar/onay.php">Başvuru Onaylama</a></li>
+            <li><a class="treeview-item" href="sayfalar/kayitSilme.php">Kayıt Silme</a></li>
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="giris.php" ><span class="app-menu__label">ÇIKIŞ</span></a>
+        <li class="treeview"><a class="app-menu__item" href="sayfalar/giris.php" ><span class="app-menu__label">ÇIKIŞ</span></a>
     </aside>
     <main class="app-content">
       <div class="row">

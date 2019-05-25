@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-9"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" type="text/css" href="main_giris.css">
+	<link rel="stylesheet" type="text/css" href="\css\main_giris.css">
 <!--===============================================================================================-->
 	<link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
 

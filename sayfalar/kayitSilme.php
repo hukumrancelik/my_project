@@ -10,7 +10,7 @@ include("dataBase.php")
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="main_dene.css">
+    <link rel="stylesheet" type="text/css" href="\css\main_dene.css">
 
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -153,7 +153,17 @@ if ( $query->rowCount() ){
 
             </div>
 </form>
-
+<script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <!-- ------------------------------------>
+    <script src="/js/plugins/pace.min.js"></script>
+       <!-- ------------------------------------>
+    <script type="text/javascript" src="/js/plugins/jquery.vmap.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.vmap.world.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.vmap.sampledata.js"></script>
+  
     
   </body>
 

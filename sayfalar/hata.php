@@ -9,7 +9,7 @@
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 
-	<link rel="stylesheet" type="text/css" href="main_giris.css">
+	<link rel="stylesheet" type="text/css" href="\css\main_giris.css">
 <!--===============================================================================================-->
 	<link rel="shortcut icon" href="logo4.ico" type="image/x-icon" />
 
