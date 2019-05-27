@@ -49,16 +49,19 @@ include("dataBase.php")
         
         <li class="treeview is-expanded"><a class="app-menu__item is-expanded" href="#" data-toggle="treeview"><span class="app-menu__label">Analizler</span></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="mahalle.php">Mahalle Analizleri</a></li>
+             <li><a class="treeview-item active" href="puan.php">İhtiyaç Puanlarına Göre</a></li>
             <li><a class="treeview-item" href="birey.php"> Birey Analizleri</a></li>
             <li class="treeview"><a class="app-menu__item" href="#" ><span class="app-menu__label">Cinsiyet Analizleri</span></a>
             <ul class="treeview-menu">
               <li><i><a class="treeview-item " href="birey_kadin.php" > |Kadın|</i></a></li>
               <li><i><a class="treeview-item" href="birey_erkek.php" data-toggle="treeview">|Erkek|</i></a></li>
             </ul>
-                    <li><a class="treeview-item active" href="puan.php">İhtiyaç Puanlarına Göre</a></li>
+                   <li><a class="treeview-item" href="mahalle.php">Mahalle Analizleri</a></li>
           </ul>
         </li>
+
+             
+
         
        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><span class="app-menu__label">İşlemler</span></a>
           <ul class="treeview-menu">
