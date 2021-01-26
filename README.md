@@ -1,4 +1,5 @@
-# Hükümran Çelik 2016469052
+# Hükümran Çelik 
+#mail: hukumran.celik@gmail.com
 # BELEDİYELERDE SOSYAL YARDIM HİZMETLERİ DAĞITIMINA YÖNELİK KARAR DESTEK SİSTEMİ
 ![giphy](https://user-images.githubusercontent.com/36935662/58375401-e8247b80-7f5a-11e9-8732-e462fd1bd6f6.gif)
 
